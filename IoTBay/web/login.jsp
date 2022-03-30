@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : login
     Created on : 30 Mar 2022, 5:17:51 pm
     Author     : Jaydn
@@ -12,6 +12,17 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <form action="Login Page" method="post">
+          <table style ="with: 50%">
+            <tr>
+                <td>UserName</td>
+                <td><input type="text" name="username"/></td>
+            </tr>
+            <tr>
+                  <td>Password</td>
+                  <td><input type="password" name="password" /></td>
+            </tr>
+          </table>
+          <input type="submit" value="Login" /></form>
     </body>
 </html>
