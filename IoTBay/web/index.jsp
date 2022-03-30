@@ -12,11 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-      <form aciton="login.jsp">
-          <pre>
-            UserName: <input type = "text" name ="uname">
-            Email : <input type="text" name="Email">
-                    < input type="submit" value="Login"
-          </pre>
+      <h1>"Hello World"</h1>
     </body>
 </html>
