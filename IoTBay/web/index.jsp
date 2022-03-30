@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : index
     Created on : 30 Mar 2022, 5:17:24 pm
     Author     : Jaydn
@@ -12,6 +12,11 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+      <form aciton="login.jsp">
+          <pre>
+            UserName: <input type = "text" name ="uname">
+            Email : <input type="text" name="Email">
+                    < input type="submit" value="Login"
+          </pre>
     </body>
 </html>
