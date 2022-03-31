@@ -13,9 +13,9 @@
     </head>
     <body>
         <form action="Login Page" method="post">
-          <table style ="with: 50%">
+          <table style ="width: 50%">
             <tr>
-                <td>UserName</td>
+                <td>Username</td>
                 <td><input type="text" name="username"/></td>
             </tr>
             <tr>
