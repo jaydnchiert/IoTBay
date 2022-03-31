@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>IoTBay<h1>
-        <p>A Place to buy tech</p>
+        <p style="font-size:20px;">A Place to buy tech</p>
         <a href="./register.jsp">Register</a>
         <a href="./login.jsp">Login</a>
 </html>
