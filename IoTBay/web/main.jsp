@@ -1,3 +1,4 @@
+<%@page import="ioTBay.Customer" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -7,5 +8,9 @@
     </head>
     <body>
         <h1>Main</h1>
+        
+        <%
+            Customer customer =  
+        %>
     </body>
 </html>
