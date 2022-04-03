@@ -5,15 +5,11 @@
 package IoTBay;
         
 import javax.sql.DataSource;
-import java sql.Connection;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 
-/**
- *
- * @author Fernrico
- */
 public class IoTBay {
     String Username = "";
     String Password = "";

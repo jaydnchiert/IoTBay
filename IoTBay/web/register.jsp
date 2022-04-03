@@ -1,9 +1,3 @@
-<%-- 
-    Document   : register
-    Created on : 30 Mar 2022, 5:18:01 pm
-    Author     : Jaydn
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,5 +7,13 @@
     </head>
     <body>
         <h1>Register</h1>
+        <form action="./welcome.jsp" method="post">
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email"/>
+            <label for="password">Password: </label>
+            <input type="password" name="pasword" id="password"/>
+            <button type="submit">Submit</button>
+        </form>
+        
     </body>
 </html>
