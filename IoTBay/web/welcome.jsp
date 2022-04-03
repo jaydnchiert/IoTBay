@@ -7,5 +7,15 @@
     </head>
     <body>
         <h1>Welcome!</h1>
+        
+        <%
+            String fname = request.getParameter("fname");
+            String lname = request.getParameter("lname");
+            String email = request.getParameter("email");
+        %>
+        
+        <p>Your name is <%= fname + " " + lname %></p>
+        <p>Your email is <%= email %></p>
+        <p>Your password is <%= password %></p>
     </body>
 </html>

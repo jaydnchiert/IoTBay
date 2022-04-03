@@ -8,6 +8,10 @@
     <body>
         <h1>Register</h1>
         <form action="./welcome.jsp" method="post">
+            <label for="fname">First Name: </label>
+            <input type="text" name="fname" id="fname"/>
+            <label for="lname">Last Name: </label>
+            <input type="text" name="lname" id="lname"/>
             <label for="email">Email: </label>
             <input type="email" name="email" id="email"/>
             <label for="password">Password: </label>
