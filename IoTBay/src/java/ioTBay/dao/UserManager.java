@@ -62,14 +62,16 @@ public void addStaff (String firstName, String lastName, String email, String ph
 }
 
 //update a user details in the database   
-public void updateUser( String email, String name, String password, String gender, String favcol) throws SQLException {       
-   //code for update-operation   
+public void updateUser( String firstName, String lastName, String email, String phoneNumber, String password) throws SQLException {       
+   //code for update-operation  
+    st.executeUpdate("UPDATE iotdb SET FIRSTNAME = ' " + firstName + "', LASTNAME = ' " + lastName + " ', EMAIL= ' " + email + " ', PHONENUMBER = ' " + phoneNumber + " ', PASSWORD = ' " + password + " ' WHERE EMAIL = ' " + email + " ' ");
 
 }       
 
 //delete a user from the database   
 public void deleteUser(String email) throws SQLException{       
    //code for delete-operation   
+   st.executeUpdate("DELETE FROM iotdb WHERE EMAIL = ' " + email + " ' ");
 
 }
 
