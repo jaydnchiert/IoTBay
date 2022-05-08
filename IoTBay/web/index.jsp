@@ -10,4 +10,5 @@
         <p style="font-size:20px;">A Place to buy tech</p>
         <a href="./register.jsp">Register</a>
         <a href="./login.jsp">Login</a>
+        <a href="./Order.jsp">Order</a>
 </html>
