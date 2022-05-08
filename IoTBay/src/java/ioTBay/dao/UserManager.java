@@ -4,10 +4,13 @@
  */
 package ioTBay.dao;
 
-import ioTBay.User;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
+
+import ioTBay.User;
 
 /**
  *
@@ -76,7 +79,8 @@ public void deleteUser(String email) throws SQLException{
    
 }
 
-public ArrayList<User> fetchUser() throws SQLException {
+//list all users in the database
+public ArrayList<User> fetchUsers() throws SQLException {
     String fetch = "SELECT * FROM iotbd";
     ResultSet rs = st.executeQuery(fetch);
     ArrayList<User> temp = new ArrayList();
@@ -84,13 +88,14 @@ public ArrayList<User> fetchUser() throws SQLException {
     while (rs.next()){
         Integer userID = rs.getInt(1);
         String userFirstName = rs.getString(2);
-        String userLastName = rs.getString(3);String userEmail = rs.getString(4);
+        String userLastName = rs.getString(3);
+        String userEmail = rs.getString(4);
         String userPhoneNumber = rs.getString(5);
         String userPassword = rs.getString(6);
         Character userType = rs.getString(7).charAt(0);
-        temp.add(new User(userID, userFirstName, userLastName, userPhoneNumber, userPassword, userType));
+        temp.add(new User(userID, userFirstName, userLastName, userEmail, userPhoneNumber, userPassword, userType));
     }
-
+    return temp;
 }
 
  
