@@ -7,6 +7,7 @@ package ioTBay.dao;
 import ioTBay.User;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -72,9 +73,25 @@ public void updateUser( String firstName, String lastName, String email, String 
 public void deleteUser(String email) throws SQLException{       
    //code for delete-operation   
    st.executeUpdate("DELETE FROM iotdb WHERE EMAIL = ' " + email + " ' ");
-
+   
 }
 
+public ArrayList<User> fetchUser() throws SQLException {
+    String fetch = "SELECT * FROM iotbd";
+    ResultSet rs = st.executeQuery(fetch);
+    ArrayList<User> temp = new ArrayList();
+    
+    while (rs.next()){
+        Integer userID = rs.getInt(1);
+        String userFirstName = rs.getString(2);
+        String userLastName = rs.getString(3);String userEmail = rs.getString(4);
+        String userPhoneNumber = rs.getString(5);
+        String userPassword = rs.getString(6);
+        Character userType = rs.getString(7).charAt(0);
+        temp.add(new User(userID, userFirstName, userLastName, userPhoneNumber, userPassword, userType));
+    }
+
+}
 
  
 
