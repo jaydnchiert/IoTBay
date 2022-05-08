@@ -1,0 +1,14 @@
+Sun May 08 16:03:13 AEST 2022 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
+----------------------------------------------------------------
+Sun May 08 16:03:13 AEST 2022:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0180-a243-c97e-00001448be6c 
+on database directory /Users/louistsou/Documents/GitHub/IoTBay/IoTBay/db/iotdb/iotdb with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+Loaded from file:/Users/louistsou/GlassFish_Server/javadb/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_321-b07
+user.dir=/Users/louistsou/GlassFish_Server/javadb
+os.name=Mac OS X
+os.arch=x86_64
+os.version=12.2.1
+derby.system.home=/Users/louistsou/Documents/GitHub/IoTBay/IoTBay/db/iotdb
+Database Class Loader started - derby.database.classpath=''
