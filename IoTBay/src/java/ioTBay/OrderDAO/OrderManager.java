@@ -1,4 +1,4 @@
-package ioTBay.dao;
+package ioTBay.OrderDAO;
 
 import ioTBay.Order;
 import java.sql.*;
@@ -14,7 +14,7 @@ public class OrderManager {
 private Statement st;
 
 public OrderManager(Connection conn) throws SQLException {
-   st = conn.createStatement();   
+   st = conn.createStatement();
 }
 
 //Find user by email and password in the database
