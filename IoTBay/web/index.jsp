@@ -11,4 +11,5 @@
         <a href="./register.jsp">Register</a>
         <a href="./login.jsp">Login</a>
         <a href="./Order.jsp">Order</a>
+        <a href="./Shipping.jsp">Shipping</a>
 </html>
