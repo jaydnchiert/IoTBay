@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+import IoTBay.OrderDAO;
 /**
  * Servlet implementation class LoginServlet
  */
@@ -16,13 +16,13 @@ public void doGet(HttpServletRequest request, HttpServletResponse response)
 
 try
 {
-     Oder order = new Order();
+     Order order = new Order();
      order.setOrderID(request.getParameter("OrderID"));
      order.setDate(request.getParameter("Date"));
 
      order = OrderDAO.findOrder(order);
 
-     if (user.isValid())
+     if (order.isValid())
      {
 
           HttpSession session = request.getSession(true);
