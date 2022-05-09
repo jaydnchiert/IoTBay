@@ -6,6 +6,16 @@
         <title>Order</title>
     </head>
     <body>
+      <form action="LoginServlet">
 
+          Please enter your OrderID
+          <input type="text" name="OrderID"/><br>
+
+          Please enter your Date
+          <input type="text" name="Date"/>
+
+          <input type="submit" value="submit">
+
+        </form>
     </body>
 </html>
