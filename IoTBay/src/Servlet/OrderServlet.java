@@ -7,10 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class LoginServlet
- */
-public class LoginServlet extends HttpServlet {
+
+public class OrderServlet extends HttpServlet {
 
 
 public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -28,7 +26,7 @@ try
      {
 
           HttpSession session = request.getSession(true);
-          session.setAttribute("currentSessionUser",user);
+          session.setAttribute("CurrentSessionOrder",order);
           response.sendRedirect("OrderFound.jsp"); //logged-in page
      }
 
