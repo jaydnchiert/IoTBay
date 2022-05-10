@@ -69,10 +69,10 @@ public Boolean findEmail(String email) throws SQLException {
     while (rs.next()) {
         String foundEmail = rs.getString(4);
         if (foundEmail.equals(email)) {
-        return true;
+        return false;
         }
     }
-    return false;
+    return true;
 }
 
 //update a user details in the database   
