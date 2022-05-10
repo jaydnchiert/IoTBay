@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+import Order.java;
 /**
  * Servlet implementation class LoginServlet
  */
@@ -28,7 +28,7 @@ try
      {
 
           HttpSession session = request.getSession(true);
-          session.setAttribute("currentSessionUser",user);
+          session.setAttribute("CurrentSessionOrder",order);
           response.sendRedirect("OrderFound.jsp"); //logged-in page
      }
 
