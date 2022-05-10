@@ -17,8 +17,8 @@ CREATE TABLE IoTUser (
 CREATE TABLE AccessHistory (
     AccessID integer NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
     UserID integer NOT NULL,
-    LoginTime timestamp DEFAULT CURRENT_TIMESTAMP,
-    LogoutTime timestamp DEFAULT CURRENT_TIMESTAMP,
+    LoginTime timestamp,
+    LogoutTime timestamp,
 
     CONSTRAINT AccessID_PK PRIMARY KEY (AccessID),
     CONSTRAINT UserID_FK FOREIGN KEY (UserID) REFERENCES IoTUser(UserID)
