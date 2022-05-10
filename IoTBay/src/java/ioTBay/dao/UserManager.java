@@ -53,16 +53,8 @@ public User findUser(String email, String password) throws SQLException {
 }
 
 //Add a user-data into the database   
-public void addCustomer(String firstName, String lastName, String email, String phoneNumber, String password) throws SQLException {                   //code for add-operation       
-    ResultSet rs = st.executeQuery("SELECT MAX(UserID) FROM iotdb.IoTUser");
-    Integer maxUserId = rs.getInt(1);
-    Integer newUserId = maxUserId + 1;
-    st.executeUpdate("INSERT INTO iotdb.IoTUser" + "VALUES ('" + newUserId);   
-  
-}
-
-public void addStaff (String firstName, String lastName, String email, String phoneNumber, String password) throws SQLException {
-    st.executeUpdate("sql query");
+public void addUser(String firstName, String lastName, String email, String phoneNumber, String password, Character userType) throws SQLException {                   //code for add-operation       
+    st.executeUpdate("INSERT INTO IoTUser (FirstName, LastName, EmailAddress, PhoneNumber, Password, Usertype) VALUES (" + firstName + ", " + lastName + ", " + email + ", " + phoneNumber + ", " + password + ", " + userType + ");");  
 }
 
 //update a user details in the database   
@@ -81,7 +73,7 @@ public void deleteUser(String email) throws SQLException{
 
 //list all users in the database
 public ArrayList<User> fetchUsers() throws SQLException {
-    String fetch = "SELECT * FROM iotbd";
+    String fetch = "SELECT * FROM iotdb";
     ResultSet rs = st.executeQuery(fetch);
     ArrayList<User> temp = new ArrayList();
     
