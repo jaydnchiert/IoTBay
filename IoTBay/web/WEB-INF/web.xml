@@ -7,7 +7,7 @@ xml version="1.0" encoding="UTF-8"?>
 
            <servlet-name>ConnServlet servlet-name>
 
-           <servlet-class>uts.isd.controller.ConnServlet servlet-class>
+           <servlet-class>ioTBay.controller.ConnServlet servlet-class>
 
            <load-on-startup>0</load-on-startup>
 
