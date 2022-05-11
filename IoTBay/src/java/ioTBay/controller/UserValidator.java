@@ -8,6 +8,7 @@ package ioTBay.controller;
  *
  * @author Jaydn
  */
+import jakarta.servlet.http.HttpSession;
 import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -43,7 +44,7 @@ public class UserValidator implements Serializable{
        return validate(passwordPattern,password); 
     }
     
-    publick void clear(HttpSession session) {
+    public void clear(HttpSession session) {
         session.setAttribute("emailErr", "Enter email");
         session.setAttribute("passErr", "Enter password");
         session.setAttribute("existErr", "");
