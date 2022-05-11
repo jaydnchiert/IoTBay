@@ -19,7 +19,7 @@ import ioTBay.dao.*;
 
  
 
-public class ConnServlet extends HttpServlet {
+public class UserServlet extends HttpServlet {
 
     private DBConnector db;
     private UserManager manager;
@@ -30,7 +30,7 @@ public class ConnServlet extends HttpServlet {
         try {
             db = new DBConnector();
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
         }      
     }
 
@@ -43,7 +43,7 @@ public class ConnServlet extends HttpServlet {
         try {
             manager = new UserManager(conn);
         } catch (SQLException ex) {
-            Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         //export the DB manager to the view-session (JSPs)
         session.setAttribute("manager", manager);           
@@ -54,7 +54,7 @@ public class ConnServlet extends HttpServlet {
         try {
             db.closeConnection();
         } catch (SQLException ex) {
-            Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
