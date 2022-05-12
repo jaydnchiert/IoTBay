@@ -12,4 +12,6 @@
         <a href="./login.jsp">Login</a>
         <a href="./Order.jsp">Order</a>
         <a href="./Shipping.jsp">Shipping</a>
+        
+        <jsp:include page="/UserServlet" flush="true" />
 </html>
