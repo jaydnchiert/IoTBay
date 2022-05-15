@@ -15,7 +15,7 @@
  import javax.servlet.http.HttpServletRequest;
  import javax.servlet.http.HttpServletResponse;
  import javax.servlet.http.HttpSession;
- import ioTBay.dao.*;
+ import ioTBay.OrderDAO.*;
 
  /**
   *
@@ -24,7 +24,7 @@
 
  public class OrderServlet extends HttpServlet {
  private DBConnector db;
- private UserManager manager;
+ private OrderManager manager;
  private Connection conn;
 
      @Override //Create and instance of DBConnector for the deployment session
@@ -42,20 +42,20 @@
      conn = db.openConnection();
      try
      {
-          Order order = new Order();
-          order.setOrderID(request.getParameter("OrderID"));
-          order.setDate(request.getParameter("Date"));
+       manager = new OrderManager(conn);
+       } catch (SQLException ex) {
+           Logger.getLogger(OrderServlet.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       //export the DB manager to the view-session (JSPs)
+       session.setAttribute("manager", manager);
+    }
 
-          order = OrderDAO.findOrder(order);
-          if (order.isValid())
-          {
-
-               HttpSession session = request.getSession(true);
-               session.setAttribute("CurrentSessionOrder",order);
-               response.sendRedirect("OrderFound.jsp"); //logged-in page
-          }
-
-          else
-               response.sendRedirect("invalidOrder.jsp"); //error page
-     }
+    @Override //Destroy the servlet and release the resources of the application (terminate also the db connection)
+    public void destroy() {
+       try {
+           db.closeConnection();
+       } catch (SQLException ex) {
+           Logger.getLogger(OrderServlet.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }
  }

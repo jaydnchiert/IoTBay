@@ -18,8 +18,8 @@ public OrderManager(Connection conn) throws SQLException {
 }
 
 //Find user by email and password in the database
-public Order findOrder(int OrderID, int ProductID, int CustomerID, String Date, int ShippingPrice, int TotalPrice) throws SQLException {
-   String fetch = "select * from STAFF.Order where OrderID = '" + OrderID + "' and ProductID='" + ProductID +"' and CustomerID='" + CustomerID+"'";
+public Order findOrder(int OrderID, String Date) throws SQLException {
+   String fetch = "select * from STAFF.Order where OrderID = '" + OrderID + "' and Date='" + Date +"'";
    ResultSet rs = st.executeQuery(fetch);
 
    while(rs.next()){
