@@ -47,7 +47,7 @@ CREATE TABLE Product (
     ProductStorage varchar(10) NOT NULL,
     ProductService varchar(35) NOT NULL,
     ProductStatue varchar(10) NOT NULL,
-    ProductDescription varchar(65535) NOT NULL,
+    ProductDescription varchar(8000) NOT NULL,
     
     CONSTRAINT ProductID_PK PRIMARY KEY (ProductID)
     CONSTRAINT UserID_FK FOREIGN KEY (UserID) REFERENCES IoTUser(UserID)
