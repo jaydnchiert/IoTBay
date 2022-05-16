@@ -10,15 +10,15 @@ package ioTBay;
  */
 public class Order {
     private int OrderID;
-    private int CustomerID;
+    private int UserID;
     private int ProductID;
     private int ShippingPrice;
     private int TotalPrice;
     private String Date;
 
-public Order(int OrderID, int CustomerID, int ProductID, String Date, int ShippingPrice, int TotalPrice) {
+public Order(int OrderID, int UserID, int ProductID, String Date, int ShippingPrice, int TotalPrice) {
         this.OrderID = OrderID;
-        this.CustomerID = CustomerID;
+        this.UserID = UserID;
         this.ProductID = ProductID;
         this.Date = Date;
         this.ShippingPrice = ShippingPrice;
@@ -33,12 +33,12 @@ public Order(int OrderID, int CustomerID, int ProductID, String Date, int Shippi
         this.OrderID = OrderID;
     }
 
-    public int getCustomerID() {
-        return CustomerID;
+    public int getUserID() {
+        return UserID;
     }
 
-    public void setCustomerID(int CustomerID) {
-        this.CustomerID = CustomerID;
+    public void setUserID(int CustomerID) {
+        this.UserID = UserID;
     }
 
     public String getDate() {

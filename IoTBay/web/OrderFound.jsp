@@ -17,7 +17,7 @@
           <tr>
               <th>OrderID</th>
               <th>ProductID</th>
-              <th>CustomerID</th>
+              <th>UserID</th>
               <th>ShippingPrice</th>
               <th>TotalPrice</th>
               <th>Date</th>
@@ -25,7 +25,7 @@
           <tr>
             <td><%order.getOrderID()%></td>
             <td><%order.getProductID()%></td>
-            <td><%order.getCustomerID()%></td>
+            <td><%order.getUserID()%></td>
             <td>$15</td>
             <td>$50</td>
             <td><%order.getDate()%></td>

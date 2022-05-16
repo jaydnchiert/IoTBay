@@ -6,7 +6,7 @@
         <title>Order</title>
     </head>
     <body>
-      <form action="OrderServlet">
+      <form action="FindOrderServlet">
 
           Please enter your OrderID
           <input type="text" name="OrderID"/><br>

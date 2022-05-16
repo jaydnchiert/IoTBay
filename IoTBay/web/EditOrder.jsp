@@ -14,7 +14,7 @@
         <form action="EditOrder.jsp" method="post">
             <table>
                 <tr><td>OrderID:</td><<td><input type="text" name="OrderID" value="${order.OrderID}"></td></tr>
-                <tr><td>CustomerID:</td><<td><input type="text" name="CustomerID" value="${order.CustomerID}"></td></tr>
+                <tr><td>CustomerID:</td><<td><input type="text" name="UserID" value="${order.UserID}"></td></tr>
                 <tr><td>ProductID:</td><<td><input type="text" name="ProductID" value="${order.ProductID}"></td></tr>
                 <tr><td>Date:</td><<td><input type="date"name="Date" value="${Order.Date}"></td></tr>
                 <<tr><<td></td>
@@ -27,13 +27,13 @@
         </form>
                 <%
                     int OrderID = request.getParameter("OrderID");
-                    int CustomerID = request.getParameter("CustomerID");
+                    int CustomerID = request.getParameter("UserID");
                     int ProductID = request.getParameter("ProductID");
-                    int ShippingPrice = 0;
-                    int TotalPrice = 0;
+                    int ShippingPrice = 15;
+                    int TotalPrice = 50;
                     String Date = request.getParameter("Date");
-                    order = new Order(OrderID, CustomerID, ProductID, Date, ShippingPrice, TotalPrice);
-                    session.setAttribute("order", order);
+                    order = new Order(OrderID, UserID, ProductID, Date, ShippingPrice, TotalPrice);
+                    session.setAttribute("Order", order);
                 %>
     </body>
 </html>
