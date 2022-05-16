@@ -55,7 +55,7 @@ public User findUser(String email, String password) throws SQLException {
 //Add a user-data into the database   
 public Boolean addUser(String firstName, String lastName, String email, String phoneNumber, String password, Character userType) throws SQLException {                   //code for add-operation       
     if (findEmail(email)) {
-        st.executeUpdate("INSERT INTO IoTUser (FirstName, LastName, EmailAddress, PhoneNumber, Password, Usertype) VALUES ('" + firstName + "', '" + lastName + "', '" + email + "', '" + phoneNumber + "', '" + password + "', '" + userType + "');");
+        st.executeUpdate("INSERT INTO IoTUser (FirstName, LastName, EmailAddress, PhoneNumber, Password, Usertype) VALUES ('" + firstName + "', '" + lastName + "', '" + email + "', '" + phoneNumber + "', '" + password + "', '" + userType + "')");
         return true;
     }
     else return false;
@@ -63,7 +63,7 @@ public Boolean addUser(String firstName, String lastName, String email, String p
 }
 
 public Boolean findEmail(String email) throws SQLException {
-    String fetch = "SELECT * FROM IoTUser WHERE EmailAddress = '" + email + "';";
+    String fetch = "SELECT * FROM IoTUser WHERE EmailAddress = '" + email + "'";
     ResultSet rs = st.executeQuery(fetch);
     
     while (rs.next()) {

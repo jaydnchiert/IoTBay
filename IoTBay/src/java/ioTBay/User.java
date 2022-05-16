@@ -9,7 +9,6 @@ package ioTBay;
  * @author Jaydn
  */
 public class User {
-    private Integer UserID;
     private String Firstname;
     private String LastName;
     private String EmailAddress;
@@ -18,8 +17,7 @@ public class User {
     private Character UserType;
     
     //insert a constructor that initialises the fields
-    public User(Integer UserID, String Firstname, String LastName, String EmailAddress, String PhoneNumber, String Password, Character UserType) {
-        this.UserID = UserID;
+    public User(String Firstname, String LastName, String EmailAddress, String PhoneNumber, String Password, Character UserType) {
         this.Firstname = Firstname;
         this.LastName = LastName;
         this.EmailAddress = EmailAddress;
@@ -29,14 +27,6 @@ public class User {
     }
     
     //insert getters/setters
-
-    public Integer getUserID() {
-        return UserID;
-    }
-
-    public void setUserID(Integer UserID) {
-        this.UserID = UserID;
-    }
 
     public String getFirstname() {
         return Firstname;
