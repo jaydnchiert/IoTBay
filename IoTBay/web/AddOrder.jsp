@@ -9,7 +9,7 @@
       <form action="Order.jsp" method="post">
         <table>
             <tr><td>OrderID:</td><<td><input type="text" placeholder="Enter OrderID" name="OrderID" required></td></tr>
-            <tr><td>CustomerID:</td><<td><input type="text" placeholder="Enter CustomerID" name="CustomerID" required></td></tr>
+            <tr><td>CustomerID:</td><<td><input type="text" placeholder="Enter UserID" name="UserID" required></td></tr>
             <tr><td>ProductID:</td><<td><input type="password" placeholder="Enter ProductID" name="ProductID" required></td></tr>
             <tr><td>Date:</td><<td><input type="date" name="Date" required></td></tr>
             <<tr><<td></td>

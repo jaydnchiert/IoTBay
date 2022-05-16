@@ -26,25 +26,25 @@ public Order findOrder(int OrderID, String Date) throws SQLException {
       int orderID = rs.getInt(1);
       String date  = rs.getString(4);
       if (orderID==OrderID&&date==Date){
-         int customerID = rs.getInt(2);
+         int userID = rs.getInt(2);
          int productID = rs.getInt(3);
          int shippingPrice = rs.getInt(5);
          int totalPrice = rs.getInt(6);
-         return new Order(orderID, productID, customerID, date, shippingPrice, totalPrice);
+         return new Order(orderID, productID, userID, date, shippingPrice, totalPrice);
     }
 }
    return null;
 }
 
 //Add a user-data into the database
-public void addOrder(int OrderID, int ProductID, int CustomerID, String Date, int ShippingPrice, int TotalPrice) throws SQLException {                   //code for add-operation
-  st.executeUpdate("INSERT INTO STAFF.CUSTOMERORDER " + "VALUES ('" + OrderID + "', '" + ProductID + "', '"+CustomerID + "','"+ "', '"+Date + "','" + ShippingPrice + "', '" + TotalPrice +"')");
+public void addOrder(int OrderID, int ProductID, int UserID, String Date, int ShippingPrice, int TotalPrice) throws SQLException {                   //code for add-operation
+  st.executeUpdate("INSERT INTO STAFF.CUSTOMERORDER " + "VALUES ('" + OrderID + "', '" + ProductID + "', '"+UserID + "','"+ "', '"+Date + "','" + ShippingPrice + "', '" + TotalPrice +"')");
 
 }
 
 //update a user details in the database
-public void updateOrder(int OrderID, int ProductID, int CustomerID, String Date, int ShippingPrice, int TotalPrice) throws SQLException {
-   st.executeUpdate("UPDATE STAFF.CUSTOMERORDER " + "VALUES ('" + OrderID + "', '" + ProductID + "', '"+CustomerID + "','"+ "', '"+ Date + "','" + ShippingPrice + "', '" + TotalPrice +"')");
+public void updateOrder(int OrderID, int ProductID, int UserID, String Date, int ShippingPrice, int TotalPrice) throws SQLException {
+   st.executeUpdate("UPDATE STAFF.CUSTOMERORDER " + "VALUES ('" + OrderID + "', '" + ProductID + "', '"+UserID + "','"+ "', '"+ Date + "','" + ShippingPrice + "', '" + TotalPrice +"')");
 
 }
 
@@ -61,12 +61,12 @@ public ArrayList<Order> fectOrders() throws SQLException {
 
    while (rs.next()){
       int orderID = rs.getInt(1);
-      int customerID = rs.getInt(2);
+      int userID = rs.getInt(2);
       int productID = rs.getInt(3);
       String date = rs.getString(4);
       int shippingPrice = rs.getInt(5);
       int totalPrice = rs.getInt(6);
-      temp.add(new Order(orderID,customerID,productID,date,shippingPrice,totalPrice));
+      temp.add(new Order(orderID,userID,productID,date,shippingPrice,totalPrice));
 }
 return temp;
 }

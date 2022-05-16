@@ -23,3 +23,17 @@ CREATE TABLE AccessHistory (
     CONSTRAINT AccessID_PK PRIMARY KEY (AccessID),
     CONSTRAINT UserID_FK FOREIGN KEY (UserID) REFERENCES IoTUser(UserID)
 );
+
+CREATE TABLE CustomerOrder (
+    OrderID integer NOT NULL,
+    ProductID integer NOT NULL,
+    UserID integer NOT NULL,
+    ShippingPrice integer NOT NULL,
+    TotalPrice integer NOT NULL,
+    Date varchar(15) NOT NULL,
+
+    CONSTRAINT OrderID_PK PRIMARY KEY (OrderID)
+    CONSTRAINT UserID_FK FOREIGN KEY (UserID) REFERENCES IoTUser(UserID)
+    CONSTRAINT ProductID_FK FOREIGN KEY (ProductID)
+
+);
