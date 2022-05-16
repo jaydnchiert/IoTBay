@@ -17,7 +17,7 @@
           <table style ="width: 50%">
             <tr>
                 <td>Username: </td>
-                <td><input type="text" placeholder="<%=(emailErr != null ? emailErr : "Enter email")%>" name="username" required/></td>
+                <td><input type="text" placeholder="<%=(emailErr != null ? emailErr : "Enter email")%>" name="email" required/></td>
             </tr>
             <tr>
                   <td>Password: </td>
