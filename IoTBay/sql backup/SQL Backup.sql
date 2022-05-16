@@ -37,3 +37,20 @@ CREATE TABLE CustomerOrder (
     CONSTRAINT ProductID_FK FOREIGN KEY (ProductID)
 
 );
+
+CREATE TABLE Product (
+    
+    ProductID integer NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1,INCREMENT BY 1),
+    ProductName varchar(100) NOT NULL,
+    ProductPrice Double(10) NOT NULL,
+    ProductRegion varchar(35) NOT NULL,
+    ProductStorage varchar(10) NOT NULL,
+    ProductService varchar(35) NOT NULL,
+    ProductStatue varchar(10) NOT NULL,
+    ProductDescription varchar(65535) NOT NULL,
+    
+    CONSTRAINT ProductID_PK PRIMARY KEY (ProductID)
+    CONSTRAINT UserID_FK FOREIGN KEY (UserID) REFERENCES IoTUser(UserID)
+    CONSTRAINT OrderID_PK FOREIGN KEY (OrderID) REFERENCES CustomerOrder(OrderID)
+);
+
