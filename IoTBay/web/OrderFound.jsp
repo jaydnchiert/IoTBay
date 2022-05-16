@@ -30,7 +30,7 @@
             <td>$15</td>
             <td>$50</td>
             <td><%order.getDate()%></td>
-            <td><a href="./Orderdeleted.jsp">DELETE</a>
+            <td><a href="./Orderdeleted.jspid=<%=order.getOrderID("OrderID") %>"><button type="button"  class="delete">Delete</button></a>
         </table>
       </center>
 
