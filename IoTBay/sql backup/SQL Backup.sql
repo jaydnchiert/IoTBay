@@ -39,7 +39,6 @@ CREATE TABLE CustomerOrder (
 );
 
 CREATE TABLE Product (
-    
     ProductID integer NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1,INCREMENT BY 1),
     ProductName varchar(100) NOT NULL,
     ProductPrice Double(10) NOT NULL,
