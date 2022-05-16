@@ -21,6 +21,7 @@
               <th>ShippingPrice</th>
               <th>TotalPrice</th>
               <th>Date</th>
+              <th>    </th>
           </tr>
           <tr>
             <td><%order.getOrderID()%></td>
@@ -29,6 +30,7 @@
             <td>$15</td>
             <td>$50</td>
             <td><%order.getDate()%></td>
+            <td><a href="./Orderdeleted.jsp">DELETE</a>
         </table>
       </center>
 

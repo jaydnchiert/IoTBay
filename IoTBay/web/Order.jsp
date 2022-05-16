@@ -17,5 +17,6 @@
           <input type="submit" value="submit">
 
         </form>
+        <jsp:include page="/FindOrderServlet" flush="true" />
     </body>
 </html>

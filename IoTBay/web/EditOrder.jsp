@@ -7,7 +7,7 @@
     </head>
     <body>
         <%
-            Order order = (Order)session.getAttribute("order");
+            Order order = (Order)session.getAttribute("Order");
             String updated = request.getParameter("updated");
         %>
         <h1>Edit Order <span> <%= (updated !=null) ? "Update was successful":""%></span></h1>
