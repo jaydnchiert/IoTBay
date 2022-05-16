@@ -8,9 +8,6 @@
     </head>
     <body>
         <h1>Main</h1>
-        
-        <%
-            Customer customer =  
-        %>
+
     </body>
 </html>

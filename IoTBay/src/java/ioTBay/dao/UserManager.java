@@ -31,20 +31,27 @@ public UserManager(Connection conn) throws SQLException {
 
 //Find user by email and password in the database   
 public User findUser(String email, String password) throws SQLException {       
-   //setup the select sql query string 
+   //setup the select sql query string
+   
    String fetch = "select * from IoTUser where EmailAddress = '" + email + "' and Password ='" + password + "'";
    //execute this query using the statement field
-   ResultSet rs = st.executeQuery(fetch);
+   ResultSet rs = st.executeQuery(fetch);;
    //add the results to a ResultSet       
    //search the ResultSet for a user using the parameters  
    while (rs.next()) {
-       String userEmail = rs.getString(3);
-       String userPassword = rs.getString(5);
+       String userEmail = rs.getString(4);
+       System.out.println(userEmail);
+       String userPassword = rs.getString(6);
+       System.out.println(userPassword);
        if (userEmail.equals(email) && userPassword.equals(password)) {
-           String userFirstName = rs.getString(1);
-           String userLastName = rs.getString(2);
-           String userPhoneNumber = rs.getString(4);
-           Character userType = rs.getString(6).charAt(0);
+           String userFirstName = rs.getString(2);
+           System.out.println(userFirstName);
+           String userLastName = rs.getString(3);
+           System.out.println(userLastName);
+           String userPhoneNumber = rs.getString(5);
+           System.out.println(userPhoneNumber);
+           Character userType = rs.getString(7).charAt(0);
+           System.out.println(userType);
            return new User(userFirstName, userLastName, userEmail, userPhoneNumber, password, userType);
        }
    }
@@ -95,12 +102,12 @@ public ArrayList<User> fetchUsers() throws SQLException {
     ArrayList<User> temp = new ArrayList();
     
     while (rs.next()){
-        String userFirstName = rs.getString(1);
-        String userLastName = rs.getString(2);
-        String userEmail = rs.getString(3);
-        String userPhoneNumber = rs.getString(4);
-        String userPassword = rs.getString(5);
-        Character userType = rs.getString(6).charAt(0);
+        String userFirstName = rs.getString(2);
+        String userLastName = rs.getString(3);
+        String userEmail = rs.getString(4);
+        String userPhoneNumber = rs.getString(5);
+        String userPassword = rs.getString(6);
+        Character userType = rs.getString(7).charAt(0);
         temp.add(new User(userFirstName, userLastName, userEmail, userPhoneNumber, userPassword, userType));
     }
     return temp;
