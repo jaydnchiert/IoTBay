@@ -66,7 +66,7 @@ public class LoginServlet extends HttpServlet {
             //13-save the logged in user object to the session
             session.setAttribute("user", user);
             //14- redirect user to the main.jsp
-            request.getRequestDispatcher("main.jsp").include(request, response);
+            request.getRequestDispatcher("loginSuccess.jsp").include(request, response);
             
         } else {
             //15-set user does not exist error to the session

@@ -7,16 +7,33 @@
     </head>
     <body>
         <h1>Register</h1>
-        <form action="welcome.jsp" method="post">
-            <label for="fname">First Name: </label>
-            <input type="text" name="fname" id="fname"/>
-            <label for="lname">Last Name: </label>
-            <input type="text" name="lname" id="lname"/>
-            <label for="email">Email: </label>
-            <input type="email" name="email" id="email"/>
-            <label for="password">Password: </label>
-            <input type="password" name="pasword" id="password"/>
-            <button type="submit">Submit</button>
+        <form action="RegisterServlet" method="post">
+            <table style = "width: 50%">
+            <tr>
+                <td>First Name: </td>
+                <td><input type="text" name="firstName" required/></td>
+            </tr>
+            <tr>
+                <td>Last Name: </td>
+                <td><input type="text" name="lastName" required/></td>
+            </tr>
+            <tr>
+                <td>Email Address: </td>
+                <td><input type="text" name="email" required/></td>
+            </tr>
+            <tr>
+                <td>Phone Number: </td>
+                <td><input type="text" name="phoneNumber" required/></td>
+            </tr>
+            <tr>
+                <td>Password: </td>
+                <td><input type="text" name="password" required/></td>
+            </tr>
+            <tr>
+                <td><input type="hidden" name="userType" value="c"/></td>
+            </tr>
+            </table>
+            <input type="submit" value="Register" />
         </form>
         
     </body>
