@@ -51,8 +51,12 @@ public class RegisterServlet extends HttpServlet{
         }
         
         
-        //7- validate email
-        if (!validator.validateEmail(email)) {           
+        
+        if (validator.checkEmptyRegister(firstName, lastName, email, phoneNumber, password)) {
+            session.setAttribute("emptyErr", "Error: Please fill in all fields.");
+            request.getRequestDispatcher("register.jsp").include(request, response);
+            
+        } else if (!validator.validateEmail(email)) {           
             //8-set incorrect email error to the session
             session.setAttribute("emailErr", "Error: Email format incorrect");
             //9- redirect user back to the login.jsp     
@@ -65,19 +69,16 @@ public class RegisterServlet extends HttpServlet{
             request.getRequestDispatcher("register.jsp").include(request, response);
         
         } else if (!validator.validateName(firstName)) {
-            session.setAttribute("nameErr", "Error: First name format incorrect");
+            session.setAttribute("firstNameErr", "Error: First name format incorrect");
             request.getRequestDispatcher("register.jsp").include(request, response);
             
         } else if (!validator.validateName(lastName)){
-            session.setAttribute("nameErr", "Error: Last name format incorrect");
+            session.setAttribute("lastNameErr", "Error: Last name format incorrect");
             request.getRequestDispatcher("register.jsp").include(request, response);
-            
-        } else if (!validator.checkEmpty(email, password)) {
-            session.setAttribute("emptyErr", "Error: Field is left blank");
-            request.getRequestDispatcher("register.jsp").include(request, response);
-            
-        } else if (found != true) {
+ 
+        } else if (found == true) {
             session.setAttribute("existErr", "User already exists in database");
+            
         } else {
             try {
                 

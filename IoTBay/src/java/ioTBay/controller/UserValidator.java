@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 public class UserValidator implements Serializable{ 
 
     private String emailPattern = "([a-zA-Z0-9]+)(([._-])([a-zA-Z0-9]+))*(@)([a-z]+)(.)([a-z]{3})((([.])[a-z]{0,2})*)";      
-    private String namePattern = "([A-Z][a-z]+[\\s])+[A-Z][a-z]*";       
+    private String namePattern = "([A-Za-z]{1,15})";       
     private String passwordPattern = "[a-z0-9]{4,}";       
 
     public UserValidator(){
@@ -28,8 +28,12 @@ public class UserValidator implements Serializable{
        return match.matches(); 
     }       
 
-    public boolean checkEmpty(String email, String password){       
+    public boolean checkEmptyLogin(String email, String password){       
        return  email.isEmpty() || password.isEmpty();   
+    }
+    
+    public boolean checkEmptyRegister(String firstName, String lastName, String email, String phoneNumber, String password){
+        return firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || phoneNumber.isEmpty() || password.isEmpty();
     }
 
     public boolean validateEmail(String email){                       
@@ -47,7 +51,10 @@ public class UserValidator implements Serializable{
     public void clear(HttpSession session) {
         session.setAttribute("emailErr", "");
         session.setAttribute("passErr", "");
+        session.setAttribute("firstNameErr", "");
+        session.setAttribute("lastNameErr", "");
+        session.setAttribute("emptyErr", "");
         session.setAttribute("existErr", "");
-        session.setAttribute("nameErr", "");
+        session.setAttribute("addErr", "");
     }
 }
