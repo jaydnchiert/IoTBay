@@ -9,12 +9,17 @@
         <title>IoTBay</title>
     </head>
     <body>
-        <h1>IoTBay<h1>
-        <p style="font-size:20px;">A Place to buy tech</p>
-        <a href="./register.jsp">Register</a>
-        <a href="./login.jsp">Login</a>
-        <a href="./Order.jsp">Order</a>
-        <a href="./Shipping.jsp">Shipping</a>
-        
+        <header class="main-header">
+            <nav>
+                <h1 id="logo">IoTBay</h1>
+                <ul>
+                    <li><a href="./register.jsp">Register</a></li>
+                    <li><a href="./login.jsp">Login</a></li>
+                    <li><a href="./Order.jsp">Order</a></li>
+                    <li><a href="./Shipping.jsp">Shipping</a></li>
+                </ul>
+
+            </nav>
+        </header>
         <jsp:include page="/UserServlet" flush="true" />
 </html>

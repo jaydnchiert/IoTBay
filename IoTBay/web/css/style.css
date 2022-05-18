@@ -3,6 +3,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
 */
 
+/* Global Styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -11,4 +13,38 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 
 html {
   font-size: 62.5%;
+}
+
+body {
+    font-family: helvetica;
+}
+
+h1 {
+    font-size: 3.6rem;
+}
+
+li, button, label, input, p {
+    font-size: 2rem;
+}
+
+/* Nav Section */
+.main-header {
+    background: #7bbfff;
+    color: white;
+    top: 0px;
+    z-index: 3;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav ul {
+    display: flex;
+    flex: 1 1 20rem;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
 }
