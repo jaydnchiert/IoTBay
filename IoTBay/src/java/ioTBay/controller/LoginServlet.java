@@ -47,8 +47,6 @@ public class LoginServlet extends HttpServlet {
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        System.out.println(user);
-        
         //7- validate email
         if (!validator.validateEmail(email)) {           
                  //8-set incorrect email error to the session

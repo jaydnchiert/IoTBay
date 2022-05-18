@@ -53,13 +53,8 @@ public User findUser(String email, String password) throws SQLException {
 }
 
 //Add a user-data into the database   
-public Boolean addUser(String firstName, String lastName, String email, String phoneNumber, String password, Character userType) throws SQLException {                   //code for add-operation       
-    if (findEmail(email)) {
-        st.executeUpdate("INSERT INTO IoTUser (FirstName, LastName, EmailAddress, PhoneNumber, Password, Usertype) VALUES ('" + firstName + "', '" + lastName + "', '" + email + "', '" + phoneNumber + "', '" + password + "', '" + userType + "')");
-        return true;
-    }
-    else return false;
-      
+public void addUser(String firstName, String lastName, String email, String phoneNumber, String password, Character userType) throws SQLException {                   //code for add-operation       
+    st.executeUpdate("INSERT INTO IoTUser (FirstName, LastName, EmailAddress, PhoneNumber, Password, Usertype) VALUES ('" + firstName + "', '" + lastName + "', '" + email + "', '" + phoneNumber + "', '" + password + "', '" + userType + "')");
 }
 
 public Boolean findEmail(String email) throws SQLException {
@@ -69,10 +64,10 @@ public Boolean findEmail(String email) throws SQLException {
     while (rs.next()) {
         String foundEmail = rs.getString(4);
         if (foundEmail.equals(email)) {
-        return false;
+        return true;
         }
     }
-    return true;
+    return false;
 }
 
 //update a user details in the database   
