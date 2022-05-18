@@ -48,7 +48,7 @@ nav {
 
 nav ul {
     display: flex;
-    flex: 1 1 20rem;
+    flex: 1 1 50rem;
     justify-content: space-around;
     align-items: center;
     list-style: none;
