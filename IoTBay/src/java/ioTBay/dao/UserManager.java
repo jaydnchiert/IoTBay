@@ -35,7 +35,7 @@ public User findUser(String email, String password) throws SQLException {
    
    String fetch = "select * from IoTUser where EmailAddress = '" + email + "' and Password ='" + password + "'";
    //execute this query using the statement field
-   ResultSet rs = st.executeQuery(fetch);;
+   ResultSet rs = st.executeQuery(fetch);
    //add the results to a ResultSet       
    //search the ResultSet for a user using the parameters  
    while (rs.next()) {
