@@ -27,24 +27,43 @@ li, button, label, input, p {
     font-size: 2rem;
 }
 
+a {
+    text-decoration: none;
+}
+
 /* Nav Section */
 .main-header {
-    background: #7bbfff;
+    background: #009dc4;
     color: white;
-    top: 0px;
-    z-index: 3;
 }
 
 nav {
     display: flex;
     align-items: center;
+    width: 90%;
+    padding: 2rem;
+    min-height: 10vh;
     flex-wrap: wrap;
 }
 
 nav ul {
     display: flex;
-    flex: 1 1 20rem;
+    flex: 1 1 10rem;
     justify-content: space-around;
     align-items: center;
     list-style: none;
+}
+
+nav a {
+    color: white;
+}
+
+#logo {
+    flex: 2 1 40rem;
+}
+
+/* Main Section */
+
+main {
+    
 }

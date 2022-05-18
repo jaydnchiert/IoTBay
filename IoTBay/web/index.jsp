@@ -18,8 +18,11 @@
                     <li><a href="./Order.jsp">Order</a></li>
                     <li><a href="./Shipping.jsp">Shipping</a></li>
                 </ul>
-
             </nav>
         </header>
+        <main>
+            
+        </main>
         <jsp:include page="/UserServlet" flush="true" />
+    </<body>
 </html>
