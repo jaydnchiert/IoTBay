@@ -21,6 +21,7 @@
               <th>TotalPrice</th>
               <th>Date</th>
               <th>    </th>
+              <th>    </th>
           </tr>
           <tr>
             <td><%order.getOrderID()%></td>
@@ -29,8 +30,10 @@
             <td>15</td>
             <td>50</td>
             <td><%order.getDate()%></td>
-            <td><a href="./Orderdeleted.jspid=<%=order.getOrderID("OrderID") %>"><button type="button"  class="delete">Delete</button></a>
+            <td><a href="EditOrderServlet?orderid='<%= order.getOrderID()%>'&date='<%= order.getDate()%>'">Edit</button></a>
+            <td><a href="DeleteOrderServlet?orderid='<%= order.getOrderID()%>'&date='<%= order.getDate()%>'">Delete</button></a>
         </table>
+        <a href="./index.jsp">Main page</a>
       </center>
 
     </body>

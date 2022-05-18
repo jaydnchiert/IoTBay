@@ -10,30 +10,24 @@
             Order order = (Order)session.getAttribute("Order");
             String updated = request.getParameter("updated");
         %>
-        <h1>Edit Order <span> <%= (updated !=null) ? "Update was successful":""%></span></h1>
-        <form action="EditOrder.jsp" method="post">
+        <div>
+            <a href="OrderServlet?orderid='<%= order.getOrderID()%>'&date='<%= order.getDate()%>'"> Order Page</a>
+            <a href="index.jsp">Main</a>
+        </div>
+        <h1>Edit Order <span class="message"> <%= (updated !=null ? updated : "")%></span></h1>
+        <form method="post" action="UpdateOrderServlet">
             <table>
                 <tr><td>OrderID:</td><<td><input type="text" name="OrderID" value="${order.OrderID}"></td></tr>
                 <tr><td>UserID:</td><<td><input type="text" name="UserID" value="${order.UserID}"></td></tr>
                 <tr><td>ProductID:</td><<td><input type="text" name="ProductID" value="${order.ProductID}"></td></tr>
                 <tr><td>Date:</td><<td><input type="date"name="Date" value="${Order.Date}"></td></tr>
                 <<tr><<td></td>
-                    <<td><a href="main.jsp" class="button"> Main</a>
+                    <<td>
                         <input type="submit" value="Update">
                         <input type="hidden" name="updated" value="updated">
                     </td>
                 </tr>
             </table>
         </form>
-                <%
-                    int OrderID = request.getParameter("OrderID");
-                    int UserID = request.getParameter("UserID");
-                    int ProductID = request.getParameter("ProductID");
-                    int ShippingPrice = 15;
-                    int TotalPrice = 50;
-                    String Date = request.getParameter("Date");
-                    order = new Order(OrderID, UserID, ProductID, Date, ShippingPrice, TotalPrice);
-                    session.setAttribute("Order", order);
-                %>
     </body>
 </html>
