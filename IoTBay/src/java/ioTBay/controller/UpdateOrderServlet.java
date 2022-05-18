@@ -25,9 +25,9 @@ import java.util.logging.Logger;
             HttpSession session = request.getSession();
             int orderID = request.getParameter("OrderID");
             int productId = request.getParameter("ProductID");
-            int customerId = request.getParameter("CustomerID");
+            int userId = request.getParameter("UserID");
             String date = request.getParameter("Date");
-            Order order = new Order(orderID,productId,customerId,date,15,50);
+            Order order = new Order(orderID,productId,userID,date,15,50);
             OrderManager manager = (OrderManager) session.getAttribute("manager");
             try {
                     if (order != null) {
@@ -40,9 +40,9 @@ import java.util.logging.Logger;
                     request.getRequestDispatcher("EditOrder.jsp").include(request, response);
                     }
                 } catch (SQLException | NullPointerException ex) {
-                Logger.getLogger(EditOrderServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UpdateOrderServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
             response.sendRedirect("EditOrder.jsp");
-        }
+
     }
 }
