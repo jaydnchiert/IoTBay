@@ -39,7 +39,7 @@ public User findUser(String email, String password) throws SQLException {
    //add the results to a ResultSet       
    //search the ResultSet for a user using the parameters  
    while (rs.next()) {
-       String userEmail = rs.getString(4);;
+       String userEmail = rs.getString(4);
        String userPassword = rs.getString(6);
        if (userEmail.equals(email) && userPassword.equals(password)) {
            String userFirstName = rs.getString(2);
