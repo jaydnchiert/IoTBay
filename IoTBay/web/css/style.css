@@ -40,15 +40,16 @@ a {
 nav {
     display: flex;
     align-items: center;
-    width: 90%;
-    padding: 2rem;
+    width: 100%;
+    padding: 3rem;
     min-height: 10vh;
     flex-wrap: wrap;
+    
 }
 
 nav ul {
     display: flex;
-    flex: 1 1 50rem;
+    flex: 1 1 40rem;
     justify-content: space-around;
     align-items: center;
     list-style: none;
@@ -60,6 +61,7 @@ nav a {
 
 #logo {
     flex: 2 1 40rem;
+    padding-left: 2rem;
 }
 
 /* Main Section */
