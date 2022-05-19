@@ -34,7 +34,7 @@ CREATE TABLE CustomerOrder (
 
     CONSTRAINT OrderID_PK PRIMARY KEY (OrderID)
     CONSTRAINT UserID_FK FOREIGN KEY (UserID) REFERENCES IoTUser(UserID)
-    CONSTRAINT ProductID_FK FOREIGN KEY (ProductID)
+    CONSTRAINT ProductID_FK FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
 
 );
 
@@ -47,9 +47,8 @@ CREATE TABLE Product (
     ProductService varchar(35) NOT NULL,
     ProductStatue varchar(10) NOT NULL,
     ProductDescription varchar(8000) NOT NULL,
-    
+
     CONSTRAINT ProductID_PK PRIMARY KEY (ProductID)
     CONSTRAINT UserID_FK FOREIGN KEY (UserID) REFERENCES IoTUser(UserID)
     CONSTRAINT OrderID_PK FOREIGN KEY (OrderID) REFERENCES CustomerOrder(OrderID)
 );
-
