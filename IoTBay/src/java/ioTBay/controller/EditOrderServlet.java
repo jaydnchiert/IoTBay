@@ -42,5 +42,3 @@
              request.getReqeustDispatcher("EditOrder.jsp").include(request, response);
          }
      }
-
- }
