@@ -35,9 +35,10 @@
                      order = manager.findOrder(id, date);
                      if (order != null) {
                      session.setAttribute("order",order);
-                     response.sendRedirect("Order.jsp").include(request, response);
+                     request.getRequestDispatcher("Order.jsp").include(request, response);
                      } else{
-                     response.sendRedirect("FindOrder.jsp").include(request, response);
+                     session.setAttribute("existErr", "Order does not exist in Database.");
+                     request.getRequestDispatcher"FindOrder.jsp").include(request, response);
                      }
                  } catch (SQLException | NullPointerException ex) {
                      System.out.println(ex.getMessage() == null? "Order does not exist" : "welcome");
