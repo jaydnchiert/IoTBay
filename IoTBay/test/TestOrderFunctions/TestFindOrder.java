@@ -17,7 +17,7 @@ public class TestFindOrder {
             OrderManager db = new OrderManager(conn);
 
             System.out.print("OrderID: ");
-            int orderID = "1";
+            int orderID = 1;
             System.out.println(orderID);
             System.out.print("Date: ");
             String date = "01/05/2000";

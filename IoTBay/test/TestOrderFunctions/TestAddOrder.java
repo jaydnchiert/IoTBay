@@ -16,15 +16,15 @@ public class TestAddOrder {
             OrderManager db = new OrderManager(conn);
 
             System.out.print("OrderID: ");
-            int orderID = in.nextLine();
+            int orderID = in.nextInt();
             System.out.print("ProductID: ");
-            int productID = in.nextLine();
+            int productID = in.nextInt();
             System.out.print("UserID: ");
-            int UserID = in.nextLine();
+            int UserID = in.nextInt();
             System.out.print("ShippingPrice: ");
-            int shippingPrice = in.nextLine();
+            int shippingPrice = in.nextInt();
             System.out.print("TotalPrice: ");
-            int totalPrice = in.nextLine();
+            int totalPrice = in.nextInt();
             System.out.print("Date");
             String date = in.nextLine();
 
