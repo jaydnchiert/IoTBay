@@ -30,18 +30,17 @@ CREATE TABLE CustomerOrder (
     UserID integer NOT NULL,
     ShippingPrice integer NOT NULL,
     TotalPrice integer NOT NULL,
-    Date varchar(15) NOT NULL,
+    "Date" varchar(15) NOT NULL,
 
-    CONSTRAINT OrderID_PK PRIMARY KEY (OrderID)
-    CONSTRAINT UserID_FK FOREIGN KEY (UserID) REFERENCES IoTUser(UserID)
-    CONSTRAINT ProductID_FK FOREIGN KEY (ProductID)
-
+    CONSTRAINT OrderID_PK PRIMARY KEY (OrderID),
+    CONSTRAINT CustomerOrder_FK1 FOREIGN KEY (UserID) REFERENCES IoTUser(UserID),
+    CONSTRAINT CustomerOrder_FK2 FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
 );
 
 CREATE TABLE Product (
     ProductID integer NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1,INCREMENT BY 1),
     ProductName varchar(100) NOT NULL,
-    ProductPrice Double(10) NOT NULL,
+    ProductPrice Double NOT NULL,
     ProductRegion varchar(35) NOT NULL,
     ProductStorage varchar(10) NOT NULL,
     ProductService varchar(35) NOT NULL,
@@ -49,7 +48,5 @@ CREATE TABLE Product (
     ProductDescription varchar(8000) NOT NULL,
     
     CONSTRAINT ProductID_PK PRIMARY KEY (ProductID)
-    CONSTRAINT UserID_FK FOREIGN KEY (UserID) REFERENCES IoTUser(UserID)
-    CONSTRAINT OrderID_PK FOREIGN KEY (OrderID) REFERENCES CustomerOrder(OrderID)
 );
 
