@@ -22,8 +22,7 @@ import ioTBay.OrderDAO.OrderManager;
  */
 public class AddOrderServlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         int orderID = request.getParameter("OrderID");
         int userID = request.getParameter("UserID");
@@ -34,6 +33,9 @@ public class AddOrderServlet extends HttpServlet {
         OrderManager manager = (OrderManager) session.getAttribute("manager");
     try{
         Order exist = manager.findOrder(orderID,date);
+        } catch (SQLException ex){
+        Logger.getLogger(AddOrderServlet.class.getName()).log(Level.SEVERE, null, ex);
+    }
         if(exist != null){
         session.setAttribute("existErr", "Order exists in database");
         request.getRequestDispatcher("AddOrder.jsp").include(request, response);
@@ -43,9 +45,7 @@ public class AddOrderServlet extends HttpServlet {
         session.setAttribute("order",order);
         request.getRequestDispatcher("Order.jsp").include(request, response);
     }
-    } catch (SQLException ex){
-        Logger.getLogger(AddOrderServlet.class.getName()).log(Level.SEVERE, null, ex);
-    }
+
     }
 
 

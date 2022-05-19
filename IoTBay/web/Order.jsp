@@ -33,6 +33,7 @@
             <td><a href="EditOrderServlet?orderid='<%= order.getOrderID()%>'&date='<%= order.getDate()%>'">Edit</button></a>
             <td><a href="DeleteOrderServlet?orderid='<%= order.getOrderID()%>'&date='<%= order.getDate()%>'">Delete</button></a>
         </table>
+        <a href="./AddOrder.jsp">Add Order</a>
         <a href="./index.jsp">Main page</a>
       </center>
 
