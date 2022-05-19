@@ -28,7 +28,7 @@ public class TestFindOrder {
             System.out.println(order);
             connector.closeConnection();
         }catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(TestAddUser.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TestFindOrderser.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

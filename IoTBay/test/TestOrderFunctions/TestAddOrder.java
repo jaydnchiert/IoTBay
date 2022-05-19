@@ -20,7 +20,7 @@ public class TestAddOrder {
             System.out.print("ProductID: ");
             int productID = in.nextInt();
             System.out.print("UserID: ");
-            int UserID = in.nextInt();
+            int userID = in.nextInt();
             System.out.print("ShippingPrice: ");
             int shippingPrice = in.nextInt();
             System.out.print("TotalPrice: ");
@@ -33,7 +33,7 @@ public class TestAddOrder {
             System.out.println("Order is added to database.");
             connector.closeConnection();
         }catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(TestAddUser.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TestAddOrder.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
