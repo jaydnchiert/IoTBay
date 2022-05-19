@@ -22,7 +22,7 @@
                     <td><input type="text" placeholder="Enter Date" name="Date" required/></td>
                 </tr>
             </table>
+            <input type="submit" value="FindOrder" />
         </form>
-        <jsp:include page="/FindOrderServlet" flush="true" />
     </body>
 </html>
