@@ -132,12 +132,14 @@ nav a {
     padding: 0.1rem;
 }
 
-/* register succes & login success page */
-#register-success, #login-success {
+/* register success login success, logout, logout-success pages */
+#register-success, #login-success, #logout, #logout-success {
     display:flex;
     min-height: 80vh;
     align-items: center;
     flex-direction: column;
+    text-align: center;
+    padding: 1rem;
 }
 
 .head-wrapper {
@@ -145,15 +147,22 @@ nav a {
 }
 
 .content p {
-    padding: 1rem;
+    padding: 2rem;
+    
 }
 
 .content p a {
     text-decoration: blue underline;
     color: blue;
+    
 }
 
 .content p a:visited {
     text-decoration: purple underline;
     color: purple;
+}
+
+.content form {
+    align-items: center;
+    padding: 1rem;
 }
