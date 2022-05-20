@@ -17,6 +17,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import ioTBay.User;
+import ioTBay.dao.AccessHistoryManager;
 import ioTBay.dao.UserManager;
 import jakarta.servlet.http.HttpSession;
 
@@ -33,14 +34,15 @@ public class LoginServlet extends HttpServlet {
         String email = request.getParameter("email");
         //4- capture the posted password    
         String password = request.getParameter("password");
-        //5- retrieve the manager instance from session    
-        UserManager manager = (UserManager) session.getAttribute("userManager");
+        //5- retrieve the userManager instance from session    
+        UserManager userManager = (UserManager) session.getAttribute("userManager");
+        AccessHistoryManager accessManager = (AccessHistoryManager) session.getAttribute("accessHistoryManager");
         
         User user = null;
         
         try {
             //6- find user by email and password
-                user = manager.findUser(email, password);
+                user = userManager.findUser(email, password);
                 
         }catch (SQLException ex) {
             
@@ -54,6 +56,14 @@ public class LoginServlet extends HttpServlet {
         } else if (user != null) {
             //13-save the logged in user object to the session
             session.setAttribute("user", user);
+            
+            //Add access record
+            try {
+                accessManager.addAccessHistory(user.getUserID());
+            }catch(SQLException ex) {
+                Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
             session.setAttribute("logoutLink", "./logout.jsp");
             session.setAttribute("logoutText", "Logout");
             session.setAttribute("accountLink", "./account.jsp");

@@ -4,7 +4,9 @@
  */
 package ioTBay.controller;
 
+import ioTBay.AccessHistory;
 import ioTBay.User;
+import ioTBay.dao.AccessHistoryManager;
 import ioTBay.dao.UserManager;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -27,6 +29,14 @@ public class LogoutServlet extends HttpServlet {
 
         //1- retrieve the current session
         HttpSession session = request.getSession();
+        AccessHistory accessHistory = (AccessHistory) session.getAttribute("accessHistory");
+        AccessHistoryManager accessManager = (AccessHistoryManager) session.getAttribute("accessHistoryManager");
+        
+        try {
+                accessManager.addLogoutHistory(accessHistory.getAccessID());
+        }catch(SQLException ex) {
+            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         session.invalidate();
         request.getRequestDispatcher("logoutSuccess.jsp").include(request, response);
