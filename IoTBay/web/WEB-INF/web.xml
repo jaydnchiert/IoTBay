@@ -35,7 +35,6 @@
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
-    </servlet-mapping> 
     </servlet-mapping>
     <servlet>
         <servlet-name>OrderServlet</servlet-name>

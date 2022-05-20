@@ -42,11 +42,12 @@ public User findUser(String email, String password) throws SQLException {
        String userEmail = rs.getString(4);
        String userPassword = rs.getString(6);
        if (userEmail.equals(email) && userPassword.equals(password)) {
+           Integer userId = rs.getInt(1);
            String userFirstName = rs.getString(2);
            String userLastName = rs.getString(3);
            String userPhoneNumber = rs.getString(5);
            Character userType = rs.getString(7).charAt(0);
-           return new User(userFirstName, userLastName, userEmail, userPhoneNumber, password, userType);
+           return new User(userId, userFirstName, userLastName, userEmail, userPhoneNumber, password, userType);
        }
    }
    return null;   
@@ -91,13 +92,14 @@ public ArrayList<User> fetchUsers() throws SQLException {
     ArrayList<User> temp = new ArrayList();
     
     while (rs.next()){
+        Integer userId = rs.getInt(1);
         String userFirstName = rs.getString(2);
         String userLastName = rs.getString(3);
         String userEmail = rs.getString(4);
         String userPhoneNumber = rs.getString(5);
         String userPassword = rs.getString(6);
         Character userType = rs.getString(7).charAt(0);
-        temp.add(new User(userFirstName, userLastName, userEmail, userPhoneNumber, userPassword, userType));
+        temp.add(new User(userId, userFirstName, userLastName, userEmail, userPhoneNumber, userPassword, userType));
     }
     return temp;
 }

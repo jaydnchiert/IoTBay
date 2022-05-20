@@ -23,9 +23,7 @@ public class AccessHistory {
         this.LoginTime = LoginTime;
         this.LogoutTime = LogoutTime;
     }
-    
-    
-    //insert getters/setters
+
     public Integer getAccessID() {
         return AccessID;
     }
@@ -33,7 +31,8 @@ public class AccessHistory {
     public void setAccessID(Integer AccessID) {
         this.AccessID = AccessID;
     }
-
+    
+    
     public Integer getUserID() {
         return UserID;
     }
@@ -56,6 +55,11 @@ public class AccessHistory {
 
     public void setLogoutTime(Timestamp LogoutTime) {
         this.LogoutTime = LogoutTime;
+    }
+    
+    @Override
+    public String toString() {
+        return this.getAccessID().toString() + " " + this.getUserID().toString() + " " + this.getLoginTime() + this.getLogoutTime();
     }
     
     
