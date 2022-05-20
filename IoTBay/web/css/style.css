@@ -81,11 +81,12 @@ nav a {
     padding-left: 2rem;
 }
 
-/* Register & Login Page */
+/* Register, Login Page Account*/
 
-#register, #login {
+#register, #login, #account {
     min-height: 80vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -130,6 +131,10 @@ nav a {
 
 .form-wrapper .error-message p {
     padding: 0.1rem;
+}
+
+#access-button {
+    padding-top: 4rem;
 }
 
 /* register success login success, logout, logout-success pages */

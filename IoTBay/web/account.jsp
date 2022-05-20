@@ -29,9 +29,47 @@
             </nav>
         </header>
         <main>
-            <form action="viewAccessHistory" method="post">
-                <button type="submit">View Access History</button>
-            </form>
+            <section id="account">
+                <div class="form-wrapper">
+                    <header class="form-head">
+                        <h2>Edit Account Details</h2>
+                    </header>
+                    <form action="UpdateUserServlet" method ="post">
+                        <table>
+                            <tr>
+                                <td>First Name: </td>
+                                <td><input type="text" name="firstName" value=${user.firstName} /></td>
+                            </tr>
+                            <tr>
+                                <td>Last Name: </td>
+                                <td><input type="text" name="lastName" value=${user.lastName} /></td>
+                            </tr>
+                            <tr>
+                                <td>Email Address: </td>
+                                <td><input type="text" name="email"  value=${user.emailAddress} /></td>
+                            </tr>
+                            <tr>
+                                <td>Phone Number: </td>
+                                <td><input type="text" name="phoneNumber"  value=${user.phoneNumber} /></td>
+                            </tr>
+                            <tr>
+                                <td>Password: </td>
+                                <td><input type="password" name="password"  value=${user.password} /></td>
+                            </tr>
+                        </table>
+                        <div class="form-button">
+                            <button type="submit">Update Details</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="access-button">
+                    <form action="viewAccessHistory" method="post">
+                        <button type="submit">View Access History</button>
+                    </form>           
+                </div>
+                    
+            </section>
+            
         </main>
     </<body>
 </html>

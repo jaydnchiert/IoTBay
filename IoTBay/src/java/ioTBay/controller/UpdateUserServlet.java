@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import ioTBay.dao.UserManager;
 import jakarta.servlet.http.HttpSession;
+import ioTBay.User;
 
 /**
  *
@@ -36,6 +37,8 @@ public class UpdateUserServlet extends HttpServlet{
         String password = request.getParameter("password");
         //5- retrieve the manager instance from session    
         UserManager manager = (UserManager) session.getAttribute("userManager");
+        
+        User user = (User) session.getAttribute("user");
         
         Boolean found = false;
         
