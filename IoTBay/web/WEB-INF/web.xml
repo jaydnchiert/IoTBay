@@ -37,6 +37,15 @@
         <url-pattern>/LogoutServlet</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>AccessHistoryServlet</servlet-name>
+        <servlet-class>ioTBay.controller.AccessHistoryServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AccessHistoryServlet</servlet-name>
+        <url-pattern>/AccessHistoryServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>OrderServlet</servlet-name>
         <servlet-class>ioTBay.controller.OrderServlet</servlet-class>
         <load-on-startup>0</load-on-startup>

@@ -32,5 +32,6 @@
             
         </main>
         <jsp:include page="/UserServlet" flush="true" />
+        <jsp:include page="/AccessHistoryServlet" flush="true" />
     </<body>
 </html>
