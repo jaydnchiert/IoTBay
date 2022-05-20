@@ -13,10 +13,27 @@
         <%
             User user = (User) session.getAttribute("user");
         %>
-        <h1>Login Success</h1>
-        <h2>Hi ${user.firstName} ${user.lastName}</h2>
-        <p>Redirecting you to home page.</p>
-
-
+        <header class="main-header">
+            <nav>
+                <h1 id="logo"><a href="./index.jsp">IoTBay</a></h1>
+                <ul>
+                    <li><a href="./register.jsp">Register</a></li>
+                    <li><a href="./login.jsp">Login</a></li>
+                    <li><a href="./Order.jsp">Order</a></li>
+                    <li><a href="./Shipping.jsp">Shipping</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section id="login-success">
+                <header class="head-wrapper">
+                    <h2>Login Successful</h2>
+                </header>
+                <div class="content">
+                    <p>Hi ${user.firstName} ${user.lastName}</p>
+                    <p><a href="./index.jsp">Go back to home page</a></p>
+                </div>
+            </section>
+        </main>
     </body>
 </html>

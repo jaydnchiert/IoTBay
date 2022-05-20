@@ -131,3 +131,29 @@ nav a {
 .form-wrapper .error-message p {
     padding: 0.1rem;
 }
+
+/* register succes & login success page */
+#register-success, #login-success {
+    display:flex;
+    min-height: 80vh;
+    align-items: center;
+    flex-direction: column;
+}
+
+.head-wrapper {
+    padding: 2rem;
+}
+
+.content p {
+    padding: 1rem;
+}
+
+.content p a {
+    text-decoration: blue underline;
+    color: blue;
+}
+
+.content p a:visited {
+    text-decoration: purple underline;
+    color: purple;
+}
