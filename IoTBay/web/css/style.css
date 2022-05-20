@@ -87,9 +87,13 @@ nav a {
     min-height: 80vh;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .form-wrapper {
-    width: 60%;
+    padding: 2rem;
+    width: 50%;
+    background: #dfdfdf;
+    border-radius: 15px;
 }
 .form-head {
     text-align: center;

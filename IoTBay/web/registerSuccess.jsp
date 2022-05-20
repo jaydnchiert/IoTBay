@@ -1,9 +1,3 @@
-<%-- 
-    Document   : registerSuccess
-    Created on : 18 May 2022, 2:21:59 pm
-    Author     : Jaydn
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
