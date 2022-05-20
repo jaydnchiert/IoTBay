@@ -13,6 +13,7 @@
             String existErr = (String) session.getAttribute("existErr");
             String emailErr = (String) session.getAttribute("emailErr");
             String passErr = (String) session.getAttribute("passErr");
+            String emptyErr = (String) session.getAttribute("emptyErr");
         %>
         <header class="main-header">
             <nav>
@@ -51,6 +52,7 @@
                         <p><%=(existErr!= null ? existErr: "")%></p>
                         <p><%=(emailErr != null ? emailErr : "")%></p>
                         <p><%=(passErr != null ? passErr : "")%></p>
+                        <p><%=(emptyErr != null ? emptyErr : "")%></p>
                     </div>
                 </div>
             </section>

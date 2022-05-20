@@ -50,6 +50,7 @@ public class LoginServlet extends HttpServlet {
         if (validator.checkEmptyLogin(email, password)) {
             session.setAttribute("emptyErr", "Error: Please fill in all fields.");
             request.getRequestDispatcher("login.jsp").include(request, response);
+            
         } else if (!validator.validateEmail(email)) {           
                  //8-set incorrect email error to the session
                  session.setAttribute("emailErr", "Error: Email format incorrect");
@@ -74,7 +75,7 @@ public class LoginServlet extends HttpServlet {
             
         } else {
             //15-set user does not exist error to the session
-            session.setAttribute("existErr", "User does not exist in the Database.");
+            session.setAttribute("existErr", "Error: Incorrect login details.");
             //16- redirect user back to the login.jsp
             request.getRequestDispatcher("login.jsp").include(request, response);
         }
