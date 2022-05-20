@@ -37,7 +37,7 @@ public class RegisterServlet extends HttpServlet{
         String password = request.getParameter("password");
         Character userType = request.getParameter("userType").charAt(0);
         //5- retrieve the manager instance from session    
-        UserManager manager = (UserManager) session.getAttribute("manager");
+        UserManager manager = (UserManager) session.getAttribute("userManager");
         
         Boolean found = false;
         

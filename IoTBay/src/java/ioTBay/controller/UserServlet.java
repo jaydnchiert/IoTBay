@@ -46,7 +46,7 @@ public class UserServlet extends HttpServlet {
             Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         //export the DB manager to the view-session (JSPs)
-        session.setAttribute("manager", manager);           
+        session.setAttribute("userManager", manager);           
     }   
 
     @Override //Destroy the servlet and release the resources of the application (terminate also the db connection)

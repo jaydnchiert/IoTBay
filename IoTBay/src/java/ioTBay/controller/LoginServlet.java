@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
         //4- capture the posted password    
         String password = request.getParameter("password");
         //5- retrieve the manager instance from session    
-        UserManager manager = (UserManager) session.getAttribute("manager");
+        UserManager manager = (UserManager) session.getAttribute("userManager");
         
         User user = null;
         
@@ -50,18 +50,6 @@ public class LoginServlet extends HttpServlet {
         if (validator.checkEmptyLogin(email, password)) {
             session.setAttribute("emptyErr", "Error: Please fill in all fields.");
             request.getRequestDispatcher("login.jsp").include(request, response);
-            
-        } else if (!validator.validateEmail(email)) {           
-                 //8-set incorrect email error to the session
-                 session.setAttribute("emailErr", "Error: Email format incorrect");
-                 //9- redirect user back to the login.jsp     
-                 request.getRequestDispatcher("login.jsp").include(request, response);
-        //10- validate password
-        } else if (!validator.validatePassword(password)) {                  
-                 //11-set incorrect password error to the session
-                 session.setAttribute("passErr", "Error: Password format incorrect");
-                 //12- redirect user back to the login.jsp          
-                 request.getRequestDispatcher("login.jsp").include(request, response);
         
         } else if (user != null) {
             //13-save the logged in user object to the session
