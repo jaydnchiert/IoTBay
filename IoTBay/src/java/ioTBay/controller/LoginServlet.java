@@ -47,8 +47,10 @@ public class LoginServlet extends HttpServlet {
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        //7- validate email
-        if (!validator.validateEmail(email)) {           
+        if (validator.checkEmptyLogin(email, password)) {
+            session.setAttribute("emptyErr", "Error: Please fill in all fields.");
+            request.getRequestDispatcher("login.jsp").include(request, response);
+        } else if (!validator.validateEmail(email)) {           
                  //8-set incorrect email error to the session
                  session.setAttribute("emailErr", "Error: Email format incorrect");
                  //9- redirect user back to the login.jsp     
@@ -63,6 +65,10 @@ public class LoginServlet extends HttpServlet {
         } else if (user != null) {
             //13-save the logged in user object to the session
             session.setAttribute("user", user);
+            session.setAttribute("logoutLink", "./logout.jsp");
+            session.setAttribute("logoutText", "Logout");
+            session.setAttribute("accountLink", "./account.jsp");
+            session.setAttribute("accountText", "Account");
             //14- redirect user to the main.jsp
             request.getRequestDispatcher("loginSuccess.jsp").include(request, response);
             
