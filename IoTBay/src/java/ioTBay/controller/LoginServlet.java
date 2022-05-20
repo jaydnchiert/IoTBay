@@ -52,6 +52,7 @@ public class LoginServlet extends HttpServlet {
         }
         
         if (validator.checkEmptyLogin(email, password)) {
+            validator.clear(session);
             session.setAttribute("emptyErr", "Error: Please fill in all fields.");
             request.getRequestDispatcher("login.jsp").include(request, response);
         
@@ -69,6 +70,8 @@ public class LoginServlet extends HttpServlet {
                 Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
             
+            validator.clear(session);
+            
             session.setAttribute("logoutLink", "./logout.jsp");
             session.setAttribute("logoutText", "Logout");
             session.setAttribute("accountLink", "./account.jsp");
@@ -77,6 +80,7 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher("loginSuccess.jsp").include(request, response);
             
         } else {
+            validator.clear(session);
             //15-set user does not exist error to the session
             session.setAttribute("existErr", "Error: Incorrect login details.");
             //16- redirect user back to the login.jsp

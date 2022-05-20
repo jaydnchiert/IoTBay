@@ -72,9 +72,9 @@ public Boolean findEmail(String email) throws SQLException {
 }
 
 //update a user details in the database   
-public void updateUser( String firstName, String lastName, String email, String phoneNumber, String password) throws SQLException {       
+public void updateUser(Integer userId, String firstName, String lastName, String email, String phoneNumber, String password) throws SQLException {       
    //code for update-operation  
-    st.executeUpdate("UPDATE IoTUser SET FIRSTNAME = ' " + firstName + "', LASTNAME = ' " + lastName + " ', EMAIL= ' " + email + " ', PHONENUMBER = ' " + phoneNumber + " ', PASSWORD = ' " + password + " ' WHERE EMAIL = ' " + email + " ' ");
+    st.executeUpdate("UPDATE IoTUser SET FIRSTNAME = '" + firstName + "', lastname = '" + lastName + "', emailAddress = '" + email +"', phoneNumber = '" + phoneNumber + "', password = '" + password + "' where userid = " + userId);
 
 }       
 

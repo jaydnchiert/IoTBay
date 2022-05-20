@@ -40,53 +40,48 @@ public class UpdateUserServlet extends HttpServlet{
         
         User user = (User) session.getAttribute("user");
         
-        Boolean found = false;
-        
-        try {
-            //6- find user by email and password
-            found = manager.findEmail(email);
-                
-        }catch (SQLException ex) {
-            
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
         
         
         if (validator.checkEmptyRegister(firstName, lastName, email, phoneNumber, password)) {
+            validator.clear(session);
             session.setAttribute("emptyErr", "Error: Please fill in all fields.");
             request.getRequestDispatcher("account.jsp").include(request, response);
             
-        } else if (!validator.validateEmail(email)) {           
+        } else if (!validator.validateEmail(email)) { 
+            validator.clear(session);
             //8-set incorrect email error to the session
             session.setAttribute("emailErr", "Error: Email format incorrect");
             //9- redirect user back to the login.jsp     
             request.getRequestDispatcher("account.jsp").include(request, response);
         //10- validate password
-        } else if (!validator.validatePassword(password)) {                  
+        } else if (!validator.validatePassword(password)) {
+            validator.clear(session);
             //11-set incorrect password error to the session
             session.setAttribute("passErr", "Error: Password format incorrect");
             //12- redirect user back to the login.jsp          
             request.getRequestDispatcher("account.jsp").include(request, response);
         
         } else if (!validator.validateName(firstName)) {
+            validator.clear(session);
             session.setAttribute("firstNameErr", "Error: First name format incorrect");
             request.getRequestDispatcher("account.jsp").include(request, response);
             
         } else if (!validator.validateName(lastName)){
+            validator.clear(session);
             session.setAttribute("lastNameErr", "Error: Last name format incorrect");
             request.getRequestDispatcher("account.jsp").include(request, response);
  
-        } else if (found == true) {
-            session.setAttribute("existErr", "Email already exists in database");
-            
         } else {
             try {
-                
-                manager.updateUser(firstName, lastName, email, phoneNumber, password);
+                manager.updateUser(user.getUserID(), firstName, lastName, email, phoneNumber, password);
+                user = manager.findUser(email, password);
+                session.setAttribute("user", user);
+                session.setAttribute("updateSucc", "Success: Account details updated");
+                validator.clear(session);
                 request.getRequestDispatcher("account.jsp").include(request, response);
                 
             }catch (SQLException ex) {
+                validator.clear(session);
                 session.setAttribute("addErr", "Error: User couldn't be added");
                 Logger.getLogger(UpdateUserServlet.class.getName()).log(Level.SEVERE, null, ex);
             }

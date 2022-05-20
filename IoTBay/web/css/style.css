@@ -129,7 +129,15 @@ nav a {
     color: red;
 }
 
-.form-wrapper .error-message p {
+.form-wrapper .success-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    color: green;
+}
+
+.form-wrapper .error-message p, .form-wrapper .success-message p {
     padding: 0.1rem;
 }
 

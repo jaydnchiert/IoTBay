@@ -16,6 +16,14 @@
             String logoutText = (String) session.getAttribute("logoutText");
             String accountLink = (String) session.getAttribute("accountLink");
             String accountText = (String) session.getAttribute("accountText");
+            String emailErr = (String) session.getAttribute("emailErr");
+            String passErr = (String) session.getAttribute("passErr");
+            String firstNameErr = (String) session.getAttribute("firstNameErr");
+            String lastNameErr = (String) session.getAttribute("lastNameErr");
+            String emptyErr = (String) session.getAttribute("emptyErr");
+            String existErr = (String) session.getAttribute("existErr");
+            String addErr = (String) session.getAttribute("addErr");
+            String updateSucc = (String) session.getAttribute("updateSucc");
         %>
         <header class="main-header">
             <nav>
@@ -61,6 +69,18 @@
                             <button type="submit">Update Details</button>
                         </div>
                     </form>
+                    <div class="error-message">
+                        <p><%=(emailErr!= null ? emailErr: "")%></p>
+                        <p><%=(passErr!= null ? passErr: "")%></p>
+                        <p><%=(firstNameErr!= null ? firstNameErr: "")%></p>
+                        <p><%=(lastNameErr!= null ? lastNameErr: "")%></p>
+                        <p><%=(emptyErr!= null ? emptyErr: "")%></p>
+                        <p><%=(existErr!= null ? existErr: "")%></p>
+                        <p><%=(addErr!= null ? addErr: "")%></p>
+                    </div>
+                    <div class="success-message">
+                        <p><%=(updateSucc!= null ? updateSucc: "")%></p>
+                    </div>
                 </div>
                 <div id="access-button">
                     <form action="viewAccessHistory" method="post">

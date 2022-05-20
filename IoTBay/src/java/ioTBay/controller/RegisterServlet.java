@@ -53,30 +53,36 @@ public class RegisterServlet extends HttpServlet{
         
         
         if (validator.checkEmptyRegister(firstName, lastName, email, phoneNumber, password)) {
+            validator.clear(session);
             session.setAttribute("emptyErr", "Error: Please fill in all fields.");
             request.getRequestDispatcher("register.jsp").include(request, response);
             
-        } else if (!validator.validateEmail(email)) {           
+        } else if (!validator.validateEmail(email)) { 
+            validator.clear(session);
             //8-set incorrect email error to the session
             session.setAttribute("emailErr", "Error: Email format incorrect");
             //9- redirect user back to the login.jsp     
             request.getRequestDispatcher("register.jsp").include(request, response);
         //10- validate password
-        } else if (!validator.validatePassword(password)) {                  
+        } else if (!validator.validatePassword(password)) {  
+            validator.clear(session);
             //11-set incorrect password error to the session
             session.setAttribute("passErr", "Error: Password format incorrect");
             //12- redirect user back to the login.jsp          
             request.getRequestDispatcher("register.jsp").include(request, response);
         
         } else if (!validator.validateName(firstName)) {
+            validator.clear(session);
             session.setAttribute("firstNameErr", "Error: First name format incorrect");
             request.getRequestDispatcher("register.jsp").include(request, response);
             
         } else if (!validator.validateName(lastName)){
+            validator.clear(session);
             session.setAttribute("lastNameErr", "Error: Last name format incorrect");
             request.getRequestDispatcher("register.jsp").include(request, response);
  
         } else if (found == true) {
+            validator.clear(session);
             session.setAttribute("existErr", "User already exists in database");
             
         } else {
@@ -86,6 +92,7 @@ public class RegisterServlet extends HttpServlet{
                 request.getRequestDispatcher("registerSuccess.jsp").include(request, response);
                 
             }catch (SQLException ex) {
+                validator.clear(session);
                 session.setAttribute("addErr", "Error: User couldn't be added");
                 Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
