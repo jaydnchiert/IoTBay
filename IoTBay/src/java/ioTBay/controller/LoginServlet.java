@@ -8,6 +8,7 @@ package ioTBay.controller;
  *
  * @author Jaydn
  */
+import ioTBay.AccessHistory;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.io.IOException;
@@ -39,6 +40,7 @@ public class LoginServlet extends HttpServlet {
         AccessHistoryManager accessManager = (AccessHistoryManager) session.getAttribute("accessHistoryManager");
         
         User user = null;
+        AccessHistory accessHistory = null;
         
         try {
             //6- find user by email and password
@@ -60,6 +62,9 @@ public class LoginServlet extends HttpServlet {
             //Add access record
             try {
                 accessManager.addAccessHistory(user.getUserID());
+                accessHistory = accessManager.findAccessHistory(user.getUserID());
+                session.setAttribute("accessHistory", accessHistory);
+            
             }catch(SQLException ex) {
                 Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
             }

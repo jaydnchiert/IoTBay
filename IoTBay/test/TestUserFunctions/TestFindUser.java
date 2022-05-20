@@ -28,7 +28,7 @@ public class TestFindUser {
             String email = "first.last@gmail.com";
             System.out.println(email);
             System.out.print("Password: ");
-            String password = "12345";
+            String password = "first123";
             System.out.println(password);
             
             User user = db.findUser(email, password);

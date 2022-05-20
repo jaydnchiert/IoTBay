@@ -33,7 +33,7 @@ public class LogoutServlet extends HttpServlet {
         AccessHistoryManager accessManager = (AccessHistoryManager) session.getAttribute("accessHistoryManager");
         
         try {
-                accessManager.addLogoutHistory(accessHistory.getAccessID());
+            accessManager.addLogoutHistory(accessHistory.getAccessID());
         }catch(SQLException ex) {
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }

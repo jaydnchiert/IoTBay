@@ -25,7 +25,22 @@ public class AccessHistoryManager {
     }
     
   //Find Access History Logs   
-    public ArrayList<AccessHistory> findAccessHistory(Integer userId) throws SQLException {       
+    public AccessHistory findAccessHistory (Integer userId) throws SQLException {
+        String fetch = "select * from AccessHistory where userid = " + userId + " and accessid = (select max(accessid) from accesshistory)";
+        
+        ResultSet rs = st.executeQuery(fetch);
+        
+        while (rs.next()) {
+            Integer accessId = rs.getInt(1);
+            Integer accessUserId = rs.getInt(2);
+            Timestamp loginTime = rs.getTimestamp(3);
+            Timestamp logoutTime = rs.getTimestamp(4);
+            return new AccessHistory(accessId, accessUserId, loginTime, logoutTime);
+        }
+        return null;
+    }
+    
+    public ArrayList<AccessHistory> findAllAccessHistory(Integer userId) throws SQLException {       
        //setup the select sql query string
 
        String fetch = "select * from AccessHistory where userId = " + userId;

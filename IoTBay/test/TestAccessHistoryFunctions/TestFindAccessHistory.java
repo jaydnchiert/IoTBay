@@ -8,6 +8,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.ArrayList;
+import ioTBay.AccessHistory;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -30,8 +31,8 @@ public class TestFindAccessHistory {
             System.out.print("User: ");
             Integer userId = in.nextInt();
             
-            ArrayList accessLogs = db.findAccessHistory(userId);
-            System.out.println(accessLogs.toString());
+            AccessHistory accessHistory = db.findAccessHistory(userId);
+            System.out.println(accessHistory.toString());
             
             
             
