@@ -36,12 +36,12 @@
                  } catch (SQLException | NullPointerException ex) {
                      System.out.println(ex.getMessage() == null? "Order does not exist" : "welcome");
                      }
-                     if (order != null) {
-                     session.setAttribute("order",order);
-                     request.getRequestDispatcher("Order.jsp").include(request, response);
-                     } else{
-                     session.setAttribute("existErr", "Order does not exist in Database.");
-                     request.getRequestDispatcher("FindOrder.jsp").include(request, response);
-                     }
+                 if (order != null) {
+                 session.setAttribute("order",order);
+                 request.getRequestDispatcher("Order.jsp").include(request, response);
+                 } else{
+                 session.setAttribute("existErr", "Order does not exist in Database.");
+                 request.getRequestDispatcher("FindOrder.jsp").include(request, response);
+                 }
          }
      }
