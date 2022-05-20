@@ -1,4 +1,5 @@
 <%@page import="ioTBay.User" %>
+<%@page import="ioTBay.AccessHistory" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +13,7 @@
     <body>
         <%
             User user = (User) session.getAttribute("user");
+            AccessHistory accessHistory = (AccessHistory) session.getAttribute("accessHistory");
             String logoutLink = (String) session.getAttribute("logoutLink");
             String logoutText = (String) session.getAttribute("logoutText");
             String accountLink = (String) session.getAttribute("accountLink");
@@ -29,9 +31,7 @@
             </nav>
         </header>
         <main>
-            <form action="viewAccessHistory" method="post">
-                <button type="submit">View Access History</button>
-            </form>
+            
         </main>
     </<body>
 </html>
