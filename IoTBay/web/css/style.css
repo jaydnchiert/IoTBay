@@ -23,12 +23,29 @@ h1 {
     font-size: 3.6rem;
 }
 
-li, button, label, input, p {
+h2 {
+    font-size:3.6rem;
+}
+
+li, button, label, input, p, td {
     font-size: 2rem;
 }
 
 a {
     text-decoration: none;
+}
+
+button {
+    background: #009dc4;
+    padding: 1.7rem 4rem;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+button:hover {
+    background: #007491;
 }
 
 /* Nav Section */
@@ -64,8 +81,49 @@ nav a {
     padding-left: 2rem;
 }
 
-/* Main Section */
+/* Register & Login Page */
 
-main {
-    
+#register, #login {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+}
+.form-wrapper {
+    width: 60%;
+}
+.form-head {
+    text-align: center;
+    padding: 2rem 0rem 4rem 0rem;
+}
+
+.form-wrapper form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-wrapper button {
+    display: flex;
+    justify-content: left;
+}
+
+.form-wrapper td {
+    padding-right: 4rem;
+    padding-bottom: 2.3rem;
+}
+
+.form-wrapper input {
+    padding: 0.2rem;
+}
+
+.form-wrapper .error-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    color: red;
+}
+
+.form-wrapper .error-message p {
+    padding: 0.1rem;
 }

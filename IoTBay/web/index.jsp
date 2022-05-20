@@ -11,7 +11,7 @@
     <body>
         <header class="main-header">
             <nav>
-                <h1 id="logo">IoTBay</h1>
+                <h1 id="logo"><a href="./index.jsp">IoTBay</a></h1>
                 <ul>
                     <li><a href="./register.jsp">Register</a></li>
                     <li><a href="./login.jsp">Login</a></li>
