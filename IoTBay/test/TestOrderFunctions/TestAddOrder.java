@@ -28,7 +28,7 @@ public class TestAddOrder {
             System.out.print("Date");
             String date = in.nextLine();
 
-            db.addOrder(orderID, productID, userID, shippingPrice, totalPrice, date);
+            db.addOrder(orderID, productID, userID, date, shippingPrice, totalPrice);
 
             System.out.println("Order is added to database.");
             connector.closeConnection();
