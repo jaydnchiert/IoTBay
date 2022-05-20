@@ -2,7 +2,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/style.css" />
         <title>Add Order</title>
     </head>
     <body>
@@ -16,12 +19,11 @@
             <tr><td>UserID:</td><<td><input type="text" placeholder="Enter UserID" name="UserID" required></td></tr>
             <tr><td>ProductID:</td><<td><input type="text" placeholder="Enter ProductID" name="ProductID" required></td></tr>
             <tr><td>Date:</td><<td><input type="date" name="Date" required></td></tr>
-            <<tr><<td></td>
-                <<td><a href="Findorder.jsp" class="button"> Cancel</a>
-                    <input type="submit" value="Add order">
-                </td>
-            </tr>
-        </table>
+            </table>
+                <a href="Findorder.jsp" class="button"> Cancel</a>
+                <div class="form-button">
+                    <button type="submit">Add Order</button>
+                </div>
     </form>
     </body>
 </html>

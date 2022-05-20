@@ -26,7 +26,61 @@
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet</url-pattern>
-    </servlet-mapping>    
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>OrderServlet</servlet-name>
+        <servlet-class>ioTBay.controller.OrderServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrderServlet</servlet-name>
+        <url-pattern>/OrderServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddOrderServlet</servlet-name>
+        <url-pattern>ioTBay.controller.AddOrderServlet</url-pattern>
+        <load-on-startup>0</load-on-startup>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddOrderServlet</servlet-name>
+        <url-pattern>/AddOrderServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditOrderServlet</servlet-name>
+        <url-pattern>ioTBay.controller.EditOrderServlet</url-pattern>
+        <load-on-startup>0</load-on-startup>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditOrderServlet</servlet-name>
+        <url-pattern>/EditOrderServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteOrderServlet</servlet-name>
+        <url-pattern>ioTBay.controller.DeleteOrderServlet</url-pattern>
+        <load-on-startup>0</load-on-startup>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteOrderServlet</servlet-name>
+        <url-pattern>/DeleteOrderServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FindOrderServlet</servlet-name>
+        <url-pattern>ioTBay.controller.FindOrderServlet</url-pattern>
+        <load-on-startup>0</load-on-startup>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FindOrderServlet</servlet-name>
+        <url-pattern>/FindOrderServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateOrderServlet</servlet-name>
+        <url-pattern>ioTBay.controller.UpdateOrderServlet</url-pattern>
+        <load-on-startup>0</load-on-startup>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateOrderServlet</servlet-name>
+        <url-pattern>/UpdateOrderServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
