@@ -1,40 +1,44 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
+ */
 package TestOrderFunctions;
 
-import ioTBay.OrderDAO.DBConnector;
-import ioTBay.OrderDAO.OrderManager;
-import java.sql.*;
-import java.util.*;
-import java.util.logging.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ *
+ * @author louistsou
+ */
 public class TestAddOrder {
-    private static Scanner in = new Scanner(System.in);
-
-    public static void main(String[] args){
-        try{
-            DBConnector connector = new DBConnector();
-            Connection conn = connector.openConnection();
-            OrderManager db = new OrderManager(conn);
-
-            System.out.print("OrderID: ");
-            int orderID = in.nextInt();
-            System.out.print("ProductID: ");
-            int productID = in.nextInt();
-            System.out.print("UserID: ");
-            int userID = in.nextInt();
-            System.out.print("ShippingPrice: ");
-            int shippingPrice = in.nextInt();
-            System.out.print("TotalPrice: ");
-            int totalPrice = in.nextInt();
-            System.out.print("Date");
-            String date = in.nextLine();
-
-            db.addOrder(orderID, productID, userID, date, shippingPrice, totalPrice);
-
-            System.out.println("Order is added to database.");
-            connector.closeConnection();
-        }catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(TestAddOrder.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    
+    public TestAddOrder() {
+    }
+    
+    @BeforeAll
+    public static void setUpClass() {
+    }
+    
+    @AfterAll
+    public static void tearDownClass() {
+    }
+    
+    @BeforeEach
+    public void setUp() {
+    }
+    
+    @AfterEach
+    public void tearDown() {
     }
 
+    // TODO add test methods here.
+    // The methods must be annotated with annotation @Test. For example:
+    //
+    // @Test
+    // public void hello() {}
 }
