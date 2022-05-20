@@ -1,17 +1,35 @@
-<%-- 
-    Document   : account
-    Created on : 20 May 2022, 2:03:35 pm
-    Author     : Jaydn
---%>
-
+<%@page import="ioTBay.User" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/style.css" />
+        <title>IoTBay</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-    </body>
+        <%
+            User user = (User) session.getAttribute("user");
+            String logoutLink = (String) session.getAttribute("logoutLink");
+            String logoutText = (String) session.getAttribute("logoutText");
+            String accountLink = (String) session.getAttribute("accountLink");
+            String accountText = (String) session.getAttribute("accountText");
+        %>
+        <header class="main-header">
+            <nav>
+                <h1 id="logo"><a href="./index.jsp">IoTBay</a></h1>
+                <ul>
+                    <li><a href=<%=(accountLink!= null ? accountLink: "./register.jsp")%>><%=(accountText!= null ? accountText: "Register")%></a></li>
+                    <li><a href=<%=(logoutLink!= null ? logoutLink: "./login.jsp")%>><%=(logoutText!= null ? logoutText: "Login")%></a></li>
+                    <li><a href="./Order.jsp">Order</a></li>
+                    <li><a href="./Shipping.jsp">Shipping</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            
+        </main>
+    </<body>
 </html>
