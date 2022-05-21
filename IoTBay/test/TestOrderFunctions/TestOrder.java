@@ -2,14 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
  */
-package TestOrderFunctions;
-import iotBay.OrderDAO.*;
-import ioTBay.Order;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-import java.sql.*;
-import java.util.*;
-import java.util.logging.*;
+ package TestOrderFunctions;
+ import ioTBay.Order;
+ import ioTBay.OrderDAO.OrderManager;
+ import ioTBay.dao.DBConnector;
+ import org.junit.jupiter.api.Test;
+ import static org.junit.jupiter.api.Assertions.*;
+ import java.sql.*;
+ import java.util.*;
+ import java.util.logging.*;
 
 /**
  *
@@ -47,7 +48,7 @@ public class TestOrder {
 
 
           }catch (ClassNotFoundException | SQLException ex) {
-              Logger.getLogger(TestFindOrder.class.getName()).log(Level.SEVERE, null, ex);
+              Logger.getLogger(TestOrder.class.getName()).log(Level.SEVERE, null, ex);
           }
       }
 
