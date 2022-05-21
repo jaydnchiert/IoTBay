@@ -55,13 +55,13 @@
         <url-pattern>/UpdateUserServlet</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>ViewAccessHistoryServlet</servlet-name>
-        <servlet-class>ioTBay.controller.ViewAccessHistoryServlet</servlet-class>
+        <servlet-name>ShowAccessHistoryServlet</servlet-name>
+        <servlet-class>ioTBay.controller.ShowAccessHistoryServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ViewAccessHistoryServlet</servlet-name>
-        <url-pattern>/ViewAccessHistoryServlet</url-pattern>
+        <servlet-name>ShowAccessHistoryServlet</servlet-name>
+        <url-pattern>/ShowAccessHistoryServlet</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>OrderServlet</servlet-name>
