@@ -16,9 +16,9 @@ import java.util.logging.*;
  * @author louistsou
  */
 public class TestOrder {
+    private static Scanner in = new Scanner(System.in);
     @Test
     public void TestOrder() {
-      private static Scanner in = new Scanner(System.in);
       try{
               DBConnector connector = new DBConnector();
               Connection conn = connector.openConnection();
