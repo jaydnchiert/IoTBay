@@ -86,7 +86,7 @@ public class RegisterServlet extends HttpServlet{
             
         } else {
             try {
-                
+                validator.clear(session);
                 manager.addUser(firstName, lastName, email, phoneNumber, password, userType);
                 request.getRequestDispatcher("registerSuccess.jsp").include(request, response);
                 
