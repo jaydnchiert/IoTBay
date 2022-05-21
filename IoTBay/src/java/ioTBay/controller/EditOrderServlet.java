@@ -34,11 +34,11 @@
                      order = manager.findOrder(id, date);
                      if (order != null) {
                      session.setAttribute("order",order);
-                     request.getReqeustDispatcher("EditOrder.jsp").include(request, response);
+                     request.getRequestDispatcher("EditOrder.jsp").include(request, response);
                      }
                  } catch (SQLException | NullPointerException ex) {
                  Logger.getLogger(EditOrderServlet.class.getName()).log(Level.SEVERE, null, ex);
              }
-             request.getReqeustDispatcher("EditOrder.jsp").include(request, response);
+             request.getRequestDispatcher("EditOrder.jsp").include(request, response);
          }
      }
