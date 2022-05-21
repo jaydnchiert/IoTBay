@@ -42,7 +42,7 @@ public class SearchAccessHistoryServlet extends HttpServlet{
         if (!validator.validateDate(date)) {
             validator.clear(session);
             session.setAttribute("accessLogs", accessLogs);
-            session.setAttribute("dateErr", "Invalid date format");
+            session.setAttribute("dateErr", "Error: Invalid date format");
             request.getRequestDispatcher("accessHistory.jsp").include(request, response);
         }
         

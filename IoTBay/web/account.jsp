@@ -24,6 +24,7 @@
             String existErr = (String) session.getAttribute("existErr");
             String addErr = (String) session.getAttribute("addErr");
             String updateSucc = (String) session.getAttribute("updateSucc");
+            String phoneErr = (String) session.getAttribute("phoneErr");
         %>
         <header class="main-header">
             <nav>
@@ -77,6 +78,7 @@
                         <p><%=(emptyErr!= null ? emptyErr: "")%></p>
                         <p><%=(existErr!= null ? existErr: "")%></p>
                         <p><%=(addErr!= null ? addErr: "")%></p>
+                        <p><%=(phoneErr!= null ? phoneErr: "")%></p>
                     </div>
                     <div class="success-message">
                         <p><%=(updateSucc!= null ? updateSucc: "")%></p>

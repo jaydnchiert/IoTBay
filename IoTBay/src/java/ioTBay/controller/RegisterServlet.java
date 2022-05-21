@@ -80,9 +80,14 @@ public class RegisterServlet extends HttpServlet{
             session.setAttribute("lastNameErr", "Error: Last name format incorrect");
             request.getRequestDispatcher("register.jsp").include(request, response);
  
+        } else if (!validator.validatePhoneNumber(phoneNumber)) {
+            validator.clear(session);
+            session.setAttribute("phoneErr", "Error: Phone Number format incorrect");
+            request.getRequestDispatcher("register.jsp").include(request, response);
+            
         } else if (found == true) {
             validator.clear(session);
-            session.setAttribute("existErr", "User already exists in database");
+            session.setAttribute("existErr", "Error: User already exists in database");
             
         } else {
             try {

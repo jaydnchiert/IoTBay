@@ -71,6 +71,11 @@ public class UpdateUserServlet extends HttpServlet{
             session.setAttribute("lastNameErr", "Error: Last name format incorrect");
             request.getRequestDispatcher("account.jsp").include(request, response);
  
+        } else if (!validator.validatePhoneNumber(phoneNumber)) {
+            validator.clear(session);
+            session.setAttribute("phoneErr", "Error: Phone Number format incorrect");
+            request.getRequestDispatcher("register.jsp").include(request, response);
+            
         } else {
             try {
                 manager.updateUser(user.getUserID(), firstName, lastName, email, phoneNumber, password);

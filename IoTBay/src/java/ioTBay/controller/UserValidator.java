@@ -17,7 +17,8 @@ public class UserValidator implements Serializable{
 
     private String emailPattern = "([a-zA-Z0-9]+)(([._-])([a-zA-Z0-9]+))*(@)([a-z]+)(.)([a-z]{3})((([.])[a-z]{0,2})*)";      
     private String namePattern = "([A-Za-z]{1,15})";       
-    private String passwordPattern = "([a-z0-9]{8,32})";       
+    private String passwordPattern = "([a-z0-9]{8,32})";
+    private String phonePattern = "(([+]{0,1})([0-9]{1,14}))";
 
     public UserValidator(){
     }       
@@ -26,7 +27,11 @@ public class UserValidator implements Serializable{
        Pattern regEx = Pattern.compile(pattern);       
        Matcher match = regEx.matcher(input);       
        return match.matches(); 
-    }       
+    }     
+    
+    public boolean validatePhoneNumber(String phoneNumber) {
+        return validate(phonePattern, phoneNumber);
+    }
 
     public boolean checkEmptyLogin(String email, String password){       
        return  email.isEmpty() || password.isEmpty();   
@@ -56,5 +61,6 @@ public class UserValidator implements Serializable{
         session.setAttribute("emptyErr", "");
         session.setAttribute("existErr", "");
         session.setAttribute("addErr", "");
+        session.setAttribute("phoneErr", "");
     }
 }
