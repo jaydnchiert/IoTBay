@@ -1,24 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ioTBay;
 
-/**
- *
- * @author fernr
- */
+import java.util.Date;
+
 public class Shipping {
     private int ShipmentID;
     private int OrderID;
     private int UserID;
     private String Status;
+    private String Date;
+    private String Address;
     
-    public Shipping(int ShipmentID, int OrderID, int UserID, String Status) {
+    public Shipping(int ShipmentID, int OrderID, int UserID, String Status, String Date, String Address) {
         this.ShipmentID = ShipmentID;
         this.OrderID = OrderID;
         this.UserID = UserID;
         this.Status = Status;
+        this.Date = Date;
+        this.Address = Address;
     }   
 
     public int getShipmentID() {
@@ -52,5 +50,20 @@ public class Shipping {
     public void setStatus(String Status) {
         this.Status = Status;
     }
+    
+    public String getDate() {
+        return Date;
+    }
 
+    public void setDate(String Date) {
+        this.Date = Date;
+    }
+    
+    public String getAddress() {
+        return Address;
+    }
+    
+    public void setAddress() {
+        this.Address = Address;
+    }
 }
