@@ -33,18 +33,19 @@ public class AddOrderServlet extends HttpServlet {
         OrderManager manager = (OrderManager) session.getAttribute("manager");
     try{
         Order exist = manager.findOrder(orderID,date);
-        } catch (SQLException ex){
-        Logger.getLogger(AddOrderServlet.class.getName()).log(Level.SEVERE, null, ex);
-    }
         if(exist != null){
         session.setAttribute("existErr", "Order exists in database");
         request.getRequestDispatcher("AddOrder.jsp").include(request, response);
-    }else{
+        }else{
         manager.addOrder(orderID,userID,productID,date,shippingPrice,totalPrice);
         Order order = new Order(orderID,userID,productID,date,shippingPrice,totalPrice);
         session.setAttribute("order",order);
         request.getRequestDispatcher("Order.jsp").include(request, response);
     }
+        } catch (SQLException ex){
+        Logger.getLogger(AddOrderServlet.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
 
     }
 
