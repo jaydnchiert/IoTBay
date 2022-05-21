@@ -135,6 +135,42 @@
         <servlet-name>UpdateOrderServlet</servlet-name>
         <url-pattern>/UpdateOrderServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddShippingServlet</servlet-name>
+        <url-pattern>/AddShippingServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddShippingServlet</servlet-name>
+        <servlet-class>ioTBay.controller.AddShippingServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteShippingServlet</servlet-name>
+        <url-pattern>/DeleteShippingServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DeleteShippingServlet</servlet-name>
+        <servlet-class>ioTBay.controller.DeleteShippingServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditShippingServlet</servlet-name>
+        <url-pattern>/EditShippingServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>EditShippingServlet</servlet-name>
+        <servlet-class>ioTBay.controller.EditShippingServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchShippingServlet</servlet-name>
+        <url-pattern>/SearchShippingServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SearchShippingServlet</servlet-name>
+        <servlet-class>ioTBay.controller.SearchShippingServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
     <session-config>
         <session-timeout>
             30
