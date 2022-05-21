@@ -83,6 +83,9 @@
                     <div class="success-message">
                         <p><%=(updateSucc!= null ? updateSucc: "")%></p>
                     </div>
+                    <form action="DeleteUserServlet" method="post">
+                        <button type="submit">Delete Account</button>
+                    </form>
                 </div>
                 <div id="access-button">
                     <form action="./accessHistory.jsp" method="post">

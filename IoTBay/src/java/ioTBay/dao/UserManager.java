@@ -79,9 +79,9 @@ public void updateUser(Integer userId, String firstName, String lastName, String
 }       
 
 //delete a user from the database   
-public void deleteUser(String email) throws SQLException{       
+public void deleteUser(Integer userId) throws SQLException{       
    //code for delete-operation   
-   st.executeUpdate("DELETE FROM iotdb WHERE EMAIL = ' " + email + " ' ");
+   st.executeUpdate("UPDATE iotuser SET password = null where userid = " + userId);
    
 }
 
