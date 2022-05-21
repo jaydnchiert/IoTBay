@@ -25,7 +25,7 @@
      protected void doPost(HttpServletRequest request, HttpServletResponse response)
              throws ServletException, IOException {
          HttpSession session = request.getSession();
-         int orderID = request.getParameter("OrderID");
+         int orderID = Integer.parseInt(request.getParameter("OrderID"));
          String date = request.getParameter("Date");
          OrderManager manager = (OrderManager) session.getAttribute("manager");
          Order order = null;
