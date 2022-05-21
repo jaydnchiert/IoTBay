@@ -1,4 +1,4 @@
-package ioTBay.Controller;
+package ioTBay.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
