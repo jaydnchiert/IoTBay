@@ -38,6 +38,9 @@
                     <label>Search Access History (yyyy-mm-dd): </label>
                     <input type="text" name="searchAccessHistory" />
                     <button type="submit">Search</button>
+                <form action="ShowAccessHistoryServlet" method="post">
+                    <button type="submit">Show All Access History</button>
+                </form>
                 </form>
                 <form action=""></form>
                 <table>
@@ -59,11 +62,7 @@
 
                     <% } %>
                 </table>
-                <form action="SearchAccessHistoryServlet" method="post">
-                    <label>Search Access History (yyyy-mm-dd): </label>
-                    <input type="text" name="searchAccessHistory" />
-                    <button type="submit">Search</button>
-                </form>
+
             </section>
         </main>
     </<body>
