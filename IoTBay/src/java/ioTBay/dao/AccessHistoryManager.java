@@ -59,6 +59,26 @@ public class AccessHistoryManager {
        }
        return accessLogs;
     }
+    
+    public ArrayList<AccessHistory> searchAccessHistory(Integer userId, String date) throws SQLException {       
+       //setup the select sql query string
+
+       String fetch = "select * from AccessHistory where date(logintime) = '" + date + "' and userid = " + userId;
+       //execute this query using the statement field
+       ResultSet rs = st.executeQuery(fetch);
+       
+       ArrayList<AccessHistory> accessLogs = new ArrayList();
+       
+       //search the ResultSet for a user using the parameters
+        while (rs.next()) {
+        Integer accessId = rs.getInt(1);
+        Integer accessUserId = rs.getInt(2);
+        Timestamp loginTime = rs.getTimestamp(3);
+        Timestamp logoutTime = rs.getTimestamp(4);
+        accessLogs.add(new AccessHistory(accessId, accessUserId, loginTime, logoutTime));
+        }
+        return accessLogs;  
+    }
 
     //Add a user-data into the database   
     public void addAccessHistory(Integer userId) throws SQLException {                   //code for add-operation       

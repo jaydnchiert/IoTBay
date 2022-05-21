@@ -19,6 +19,8 @@
             String logoutText = (String) session.getAttribute("logoutText");
             String accountLink = (String) session.getAttribute("accountLink");
             String accountText = (String) session.getAttribute("accountText");
+            String dateErr = (String) session.getAttribute("dateErr");
+            String logErr = (String) session.getAttribute("logErr");
         %>
         <header class="main-header">
             <nav>
@@ -36,32 +38,36 @@
                 <h2>View Access History</h2>
                 <form action="SearchAccessHistoryServlet" method="post">
                     <label>Search Access History (yyyy-mm-dd): </label>
-                    <input type="text" name="searchAccessHistory" />
+                    <input type="text" name="date" />
                     <button type="submit">Search</button>
                 </form>
                 <form action="ShowAccessHistoryServlet" method="post">
                     <button type="submit">Show All Access History</button>
                 </form>
+                <div class="error-message">
+                    <p><%=(dateErr!= null ? dateErr: "")%></p>
+                    <p><%=(logErr != null ? logErr : "")%></p>
+                </div>
                 <table>
                     <%
-                        for(int i = 0; i < accessLogs.size(); i++) { %>
-                        </tr>
-                        <tr>
-                            <td>
-                                Login Time: 
-                                <%AccessHistory accessHistory = (AccessHistory) accessLogs.get(i);%>
-                                <%= accessHistory.getLoginTime()%>
-                            </td>
-                            <td>
-                                Logout Time:
-                                <%= accessHistory.getLogoutTime()%>
-                            </td>
-                        </tr>
-
-
-                    <% } %>
+                        if(accessLogs != null) {
+                            for(int i = 0; i < accessLogs.size(); i++) { %>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Login Time: 
+                                    <%AccessHistory accessHistory = (AccessHistory) accessLogs.get(i);%>
+                                    <%= accessHistory.getLoginTime()%>
+                                </td>
+                                <td>
+                                    Logout Time:
+                                    <%= accessHistory.getLogoutTime()%>
+                                </td>
+                            </tr>
+                    <%      }
+                        } %>
+                        
                 </table>
-
             </section>
         </main>
     </<body>
