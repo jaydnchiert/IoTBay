@@ -83,7 +83,7 @@ nav a {
 
 /* Register, Login Page Account*/
 
-#register, #login, #account {
+#register, #login, #account, #access-history {
     min-height: 80vh;
     display: flex;
     flex-direction: column;
@@ -144,6 +144,12 @@ nav a {
 #access-button {
     padding-top: 4rem;
 }
+
+#search-label, #search-button, #access-form {
+    padding: 1rem;
+}
+
+
 
 /* register success login success, logout, logout-success pages */
 #register-success, #login-success, #logout, #logout-success {

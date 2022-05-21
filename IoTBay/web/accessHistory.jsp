@@ -35,39 +35,52 @@
         </header>
         <main>
             <section id="access-history">
-                <h2>View Access History</h2>
-                <form action="SearchAccessHistoryServlet" method="post">
-                    <label>Search Access History (yyyy-mm-dd): </label>
-                    <input type="text" name="date" />
-                    <button type="submit">Search</button>
-                </form>
-                <form action="ShowAccessHistoryServlet" method="post">
-                    <button type="submit">Show All Access History</button>
-                </form>
-                <div class="error-message">
-                    <p><%=(dateErr!= null ? dateErr: "")%></p>
-                    <p><%=(logErr != null ? logErr : "")%></p>
+                <div class="form-wrapper">
+                    <header class="form-head">
+                        <h2>View Access History</h2>
+                    </header>
+                    <div id="search-form">
+                        <form action="SearchAccessHistoryServlet" method="post">
+                            <div id="search-label">
+                                <label>Search Access History (yyyy-mm-dd): </label>
+                                <input type="text" name="date" />
+                            </div>
+                            <div id="search-button">
+                                <button type="submit">Search</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="access-form">
+                        <form action="ShowAccessHistoryServlet" method="post">
+                        <button type="submit">Show All Access History</button>
+                    </form>
+                    </div>
+                    <div class="error-message">
+                        <p><%=(dateErr!= null ? dateErr: "")%></p>
+                        <p><%=(logErr != null ? logErr : "")%></p>
+                    </div>
+                    <table>
+                        <%
+                            if(accessLogs != null) {
+                                for(int i = 0; i < accessLogs.size(); i++) { %>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Login Time: 
+                                        <%AccessHistory accessHistory = (AccessHistory) accessLogs.get(i);%>
+                                        <%= accessHistory.getLoginTime()%>
+                                    </td>
+                                    <td>
+                                        Logout Time:
+                                        <%= accessHistory.getLogoutTime()%>
+                                    </td>
+                                </tr>
+                        <%      }
+                            } %>     
+                    </table>
                 </div>
-                <table>
-                    <%
-                        if(accessLogs != null) {
-                            for(int i = 0; i < accessLogs.size(); i++) { %>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Login Time: 
-                                    <%AccessHistory accessHistory = (AccessHistory) accessLogs.get(i);%>
-                                    <%= accessHistory.getLoginTime()%>
-                                </td>
-                                <td>
-                                    Logout Time:
-                                    <%= accessHistory.getLogoutTime()%>
-                                </td>
-                            </tr>
-                    <%      }
-                        } %>
-                        
-                </table>
+                
+                
             </section>
         </main>
     </<body>
