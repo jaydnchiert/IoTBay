@@ -54,7 +54,7 @@ public void deleteOrder(int OrderID) throws SQLException{
 
 }
 
-public ArrayList<Order> fectOrders() throws SQLException {
+public ArrayList<Order> fecthOrders() throws SQLException {
    String fetch  ="select * from STUDENTS";
    ResultSet rs = st.executeQuery(fetch);
    ArrayList<Order> temp = new ArrayList();
