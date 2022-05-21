@@ -39,10 +39,10 @@ public class TestOrder {
               Order testOrder = db.findOrder(orderID, date);
 
               assertSame(order, testOrder);
-              assertEquals(order.OrderID,testOrder.OrderID);
-              assertEquals(order.ProductID,testOrder.ProductID);
-              assertEquals(order.UserID,testOrder.UserID);
-              assertEquals(order.Date,testOrder.Date);
+              assertEquals(order.getOrderID(),testOrder.getOrderID());
+              assertEquals(order.getProductID(),testOrder.getProductID());
+              assertEquals(order.getUserID(),testOrder.getUserID());
+              assertEquals(order.getDate(),testOrder.getDate());
               connector.closeConnection();
 
 
