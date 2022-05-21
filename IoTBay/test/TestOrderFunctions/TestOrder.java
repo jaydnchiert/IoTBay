@@ -24,15 +24,15 @@ public class TestOrder {
               Connection conn = connector.openConnection();
               OrderManager db = new OrderManager(conn);
               System.out.print("OrderID: ");
-              int orderID = in.nextInt;
+              int orderID = in.nextInt();
               System.out.print("ProductID: ");
-              int productID = in.nextInt;
+              int productID = in.nextInt();
               System.out.print("UserID: ");
-              int userID = in.nextInt;
+              int userID = in.nextInt();
               int shippingPrice = 15;
               int totalPrice = 50;
               System.out.print("Date: ");
-              String date = in.nextLine;
+              String date = in.nextLine();
 
               db.addOrder(orderID, productID, userID, date, shippingPrice, totalPrice);
               Order order = new Order(orderID, productID, userID, date, shippingPrice, totalPrice);
