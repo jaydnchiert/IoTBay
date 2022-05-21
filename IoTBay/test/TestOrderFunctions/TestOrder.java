@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
  */
 package TestOrderFunctions;
-
+import iotBay.OrderDAO.*;
+import ioTBay.Order;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -30,7 +31,7 @@ public class TestOrder {
               System.out.print("Date: ");
               String date = in.nextLine;
 
-              db.addOrder(orderID, productID, userID, date, shippingPrice, totalPrice)
+              db.addOrder(orderID, productID, userID, date, shippingPrice, totalPrice);
               Order order = new Order(orderID, productID, userID, date, shippingPrice, totalPrice);
               Order testOrder = db.findOrder(orderID, date);
 
