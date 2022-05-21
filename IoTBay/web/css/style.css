@@ -27,7 +27,7 @@ h2 {
     font-size:3.6rem;
 }
 
-li, button, label, input, p, td {
+li, button, label, input, p, td, select {
     font-size: 2rem;
 }
 
@@ -117,7 +117,7 @@ nav a {
     padding-bottom: 2.3rem;
 }
 
-.form-wrapper input {
+.form-wrapper input, .form-wrapper select {
     padding: 0.2rem;
 }
 
@@ -148,8 +148,6 @@ nav a {
 #search-label, #search-button, #access-form {
     padding: 1rem;
 }
-
-
 
 /* register success login success, logout, logout-success pages */
 #register-success, #login-success, #logout, #logout-success {

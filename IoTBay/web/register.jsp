@@ -58,7 +58,13 @@
                                 <td><input type="password" name="password" /></td>
                             </tr>
                             <tr>
-                                <td><input type="hidden" name="userType" value="c"/></td>
+                                <td>Are you a customer or staff member?</td>
+                                <td>
+                                    <select name="userType" value="c">
+                                        <option value="c">Customer</option>
+                                        <option value="s">Staff</option>
+                                    </select>
+                                </td>
                             </tr>
                         </table>
                         <div class="form-button">
