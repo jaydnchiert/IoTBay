@@ -3,7 +3,6 @@ package ioTBay.controller;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
-import java.util.logging.LogManager;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,15 +23,15 @@ import java.util.logging.Logger;
        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             HttpSession session = request.getSession();
             int orderID = Integer.parseInt(request.getParameter("OrderID"));
-            int productId = Integer.parseInt(request.getParameter("ProductID"));
-            int userId = Integer.parseInt(request.getParameter("UserID"));
+            int productID = Integer.parseInt(request.getParameter("ProductID"));
+            int userID = Integer.parseInt(request.getParameter("UserID"));
             String date = request.getParameter("Date");
             Order order = new Order(orderID,productId,userID,date,15,50);
             OrderManager manager = (OrderManager) session.getAttribute("manager");
             try {
                     if (order != null) {
                     session.setAttribute("order",order);
-                    manager.updateOrder(orderID,productId,customerId,date,15,50);
+                    manager.updateOrder(orderID,productID,userID,date,15,50);
                     session.setAttribute("updated", "Update successful");
                     request.getRequestDispatcher("EditOrder.jsp").include(request, response);
                     } else{
