@@ -30,7 +30,7 @@ public class TestFindAllAccessHistory {
             System.out.print("User: ");
             Integer userId = in.nextInt();
             
-            ArrayList accessLogs = db.findAllAccessHistory();
+            ArrayList accessLogs = db.findAllAccessHistory(userId);
             System.out.println(accessLogs);
             
             
