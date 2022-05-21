@@ -1,63 +1,95 @@
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="ioTBay.User"%>
-<%@page import="java.util.Iterator"%>
-<%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="ioTBay.dao.*"%>
+
 <!DOCTYPE html>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Admin index</title>
-        <style>
-            
-        </style>
+        <link rel="stylesheet" href="./css/style.css" />
     </head>
     <body>
-        <a herf="logout.jsp" align="right"> logout </a>
-        <h1 align="center"> You are in admin mode </h1>
-        
-        <table border="1" cellpadding="5">
-            <thead>
-                <tr>
-                    <th scope="col">UserID</th>
-                    <th scope="col">User First Name</th>
-                    <th scope="col">User Last Name</th>
-                    <th scope="col">Email Address</th>
-                    <th scope="col">Phone Number</th>
-                    <th scope="col">Password</th>
-                    <th scope="col">User Type</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                         <%
-                    int index=1;
-                    
-                    List list = UserManager.fetchUsers();
-                    Iterator it=list.iterator();
-                    while(it.hasNext()){
-                    User user=(User)it.next();
-                %>
-                <tr>
-                    <td><%=user.getUserID()%></td>
-                    <td><%=user.getFirstName()%></td>
-                    <td><%=user.getLastName()%></td>
-                    <td><%=user.getEmailAddress()%></td>
-                    <td><%=user.getPhoneNumber()%></td>
-                    <td><%=user.getPassword()%></td>
-                    <td><%=user.getUserType()%></td>
-                    <td>
-                        <a href="">Edit</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="">Delete</a>                     
-                    </td>
-                </tr>
-                <% } 
-                %>
-            </tbody>
-        </table>
-        
+        <%
+            ArrayList temp = (ArrayList) session.getAttribute("temp");
+            User user = (User) session.getAttribute("user");
+            String phoneErr = (String) session.getAttribute("phoneErr");
+            String logErr = (String) session.getAttribute("logErr");
+        %>
+        <header>
+            <a herf="index.jsp" align="right"> logout </a>
+            <h1 align="center"> You are in admin mode </h1>
+            <br>
+            <br>
+        </header>
+        <main>
+            <section id="admin">
+                <div class="form-wrapper">
+                    <div id="search-form">
+                        <form action="SearchUserServlet" method="post">
+                            <div id="search-label">
+                                <label>Search User (Phone Number): </label>
+                                <input type="text" name="phonenumber" />
+                            </div>
+                            <div id="search-button">
+                                <button type="submit">Search</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="access-form">
+                        <form action="ShowUserListServlet" method="post">
+                        <button type="submit">Show All Users</button>
+                    </form>
+                    </div>
+                    <div class="error-message">
+                        <p><%=(phoneErr!= null ? phoneErr: "")%></p>
+                        <p><%=(logErr != null ? logErr : "")%></p>
+                    </div>
+                    <table border="1" cellpadding="5">
+                    <thead>
+                        <tr>
+                            <th scope="col">UserID</th>
+                            <th scope="col">User First Name</th>
+                            <th scope="col">User Last Name</th>
+                            <th scope="col">Email Address</th>
+                            <th scope="col">Phone Number</th>
+                            <th scope="col">Password</th>
+                            <th scope="col">User Type</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <%
+                        if(temp != null) {
+                        for(int i = 0; i < temp.size(); i++) {
+                    %>
+                    <tr>
+                        <td>
+                            <%UserManager userManager = (UserManager) temp.get(i);%>
+                            <%=user.getUserID()%>
+                        </td>
+                        <td><%=user.getFirstName()%></td>
+                        <td><%=user.getLastName()%></td>
+                        <td><%=user.getEmailAddress()%></td>
+                        <td><%=user.getPhoneNumber()%></td>
+                        <td><%=user.getPassword()%></td>
+                        <td><%=user.getUserType()%></td>
+                        <td>
+                            <form action="DeleteUserAdminServlet" method="post">
+                                <button type="submit">Delete user</button>
+                            </form>                    
+                        </td>
+                    </tr>
+                    <% } 
+                    %>
+                    </tbody>
+                    </table>
+                </div>
+                    <a href="./AddUserAdmin.jsp" align="center">Add User</a>
+            </section>
+        </main>
     </body>
 </html>

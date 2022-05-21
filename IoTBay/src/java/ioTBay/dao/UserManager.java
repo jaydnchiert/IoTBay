@@ -53,6 +53,25 @@ public User findUser(String email, String password) throws SQLException {
    return null;   
 }
 
+
+public ArrayList<User> searchUserPhone(String phone) throws SQLException {       
+    String fetch = "select * from IoTUser where PhoneNumber = '" + phone + "'";
+    ResultSet rs = st.executeQuery(fetch);
+    ArrayList<User> temp = new ArrayList();
+    
+    while (rs.next()){
+      Integer userId = rs.getInt(1);
+         String userFirstName = rs.getString(2);
+         String userLastName = rs.getString(3);
+         String userEmail = rs.getString(4);
+         String userPhoneNumber = rs.getString(5);
+         String userPassword = rs.getString(6);
+         Character userType = rs.getString(7).charAt(0);
+         temp.add(new User(userId, userFirstName, userLastName, userEmail, userPhoneNumber, userPassword, userType));
+     }
+     return temp;  
+ }
+
 //Add a user-data into the database   
 public void addUser(String firstName, String lastName, String email, String phoneNumber, String password, Character userType) throws SQLException {                   //code for add-operation       
     st.executeUpdate("INSERT INTO IoTUser (FirstName, LastName, EmailAddress, PhoneNumber, Password, Usertype) VALUES ('" + firstName + "', '" + lastName + "', '" + email + "', '" + phoneNumber + "', '" + password + "', '" + userType + "')");
