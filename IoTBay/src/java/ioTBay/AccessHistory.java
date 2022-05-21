@@ -57,10 +57,4 @@ public class AccessHistory {
         this.LogoutTime = LogoutTime;
     }
     
-    @Override
-    public String toString() {
-        return this.getAccessID().toString() + " " + this.getUserID().toString() + " " + this.getLoginTime() + this.getLogoutTime();
-    }
-    
-    
 }

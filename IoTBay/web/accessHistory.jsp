@@ -1,5 +1,6 @@
 <%@page import="ioTBay.User" %>
 <%@page import="ioTBay.AccessHistory" %>
+<%@page import="java.util.ArrayList" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,8 +13,8 @@
     </head>
     <body>
         <%
+            ArrayList accessLogs = (ArrayList) session.getAttribute("accessLogs");
             User user = (User) session.getAttribute("user");
-            AccessHistory accessHistory = (AccessHistory) session.getAttribute("accessHistory");
             String logoutLink = (String) session.getAttribute("logoutLink");
             String logoutText = (String) session.getAttribute("logoutText");
             String accountLink = (String) session.getAttribute("accountLink");
@@ -31,7 +32,33 @@
             </nav>
         </header>
         <main>
-            
+            <section>
+                <h2>View Access History</h2>
+                <table>
+                    <%
+                        for(int i = 0; i < accessLogs.size(); i++) { %>
+                        </tr>
+                        <tr>
+                            <td>
+                                Login Time: 
+                                <%AccessHistory accessHistory = (AccessHistory) accessLogs.get(i);%>
+                                <%= accessHistory.getLoginTime()%>
+                            </td>
+                            <td>
+                                Logout Time:
+                                <%= accessHistory.getLogoutTime()%>
+                            </td>
+                        </tr>
+
+
+                    <% } %>
+                </table>
+                <form action="SearchAccessHistoryServlet" method="post">
+                    <label>Search Access History (yyyy-mm-dd): </label>
+                    <input type="text" name="searchAccessHistory" />
+                    <button type="submit">Search</button>
+                </form>
+            </section>
         </main>
     </<body>
 </html>

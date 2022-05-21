@@ -83,7 +83,7 @@
                     </div>
                 </div>
                 <div id="access-button">
-                    <form action="viewAccessHistoryServlet" method="post">
+                    <form action="ViewAccessHistoryServlet" method="post">
                         <button type="submit">View Access History</button>
                     </form>           
                 </div>
