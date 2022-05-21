@@ -89,7 +89,7 @@ public void deleteUser(Integer userId) throws SQLException{
 public ArrayList<User> fetchUsers() throws SQLException {
     String fetch = "SELECT * FROM iotdb";
     ResultSet rs = st.executeQuery(fetch);
-    ArrayList<User> temp = new ArrayList();
+    ArrayList<User> temp = new ArrayList<>();
     
     while (rs.next()){
         Integer userId = rs.getInt(1);
