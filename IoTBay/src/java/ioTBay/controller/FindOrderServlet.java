@@ -25,7 +25,7 @@
         @Override
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
              HttpSession session = request.getSession();
-             int id = request.getParameter("OrderID");
+             int id = Integer.parseInt(request.getParameter("OrderID"));
              //4- capture the posted password
              String date = request.getParameter("Date");
              //5- retrieve the manager instance from session

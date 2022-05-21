@@ -13,7 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servelt.http.HttpSession;
+import javax.servlet.http.HttpSession;
 import ioTBay.Order;
 import ioTBay.OrderDAO.OrderManager;
 /**
@@ -24,9 +24,9 @@ public class AddOrderServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        int orderID = request.getParameter("OrderID");
-        int userID = request.getParameter("UserID");
-        int productID = request.getParameter("ProductID");
+        int orderID = Integer.parseInt(request.getParameter("OrderID"));
+        int userID = Integer.parseInt(request.getParameter("UserID"));
+        int productID = Integer.parseInt(request.getParameter("ProductID"));
         int shippingPrice = 15;
         int totalPrice = 50;
         String date = request.getParameter("Date");

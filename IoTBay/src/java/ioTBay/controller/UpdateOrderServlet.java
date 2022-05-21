@@ -23,9 +23,9 @@ import java.util.logging.Logger;
        @Override
        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             HttpSession session = request.getSession();
-            int orderID = request.getParameter("OrderID");
-            int productId = request.getParameter("ProductID");
-            int userId = request.getParameter("UserID");
+            int orderID = Integer.parseInt(request.getParameter("OrderID"));
+            int productId = Integer.parseInt(request.getParameter("ProductID"));
+            int userId = Integer.parseInt(request.getParameter("UserID"));
             String date = request.getParameter("Date");
             Order order = new Order(orderID,productId,userID,date,15,50);
             OrderManager manager = (OrderManager) session.getAttribute("manager");

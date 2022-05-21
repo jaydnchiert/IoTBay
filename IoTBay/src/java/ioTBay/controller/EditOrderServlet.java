@@ -26,7 +26,7 @@
      @Override
      protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
          HttpSession session = request.getSession();
-         int id = request.getParameter("OrderID");
+         int id = Integer.parseInt(request.getParameter("OrderID"));
          String date = request.getParameter("Date");
          OrderManager manager = (OrderManager) session.getAttribute("manager");
          Order order = null;
