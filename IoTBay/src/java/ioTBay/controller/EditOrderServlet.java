@@ -28,7 +28,7 @@
          HttpSession session = request.getSession();
          int id = Integer.parseInt(request.getParameter("OrderID"));
          String date = request.getParameter("Date");
-         OrderManager manager = (OrderManager) session.getAttribute("manager");
+         OrderManager manager = (OrderManager) session.getAttribute("orderManager");
          Order order = null;
              try {
                      order = manager.findOrder(id, date);

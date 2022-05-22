@@ -20,7 +20,7 @@ import ioTBay.OrderDAO.OrderManager;
  * @author louistsou
  */
 public class AddOrderServlet extends HttpServlet {
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
@@ -30,7 +30,7 @@ public class AddOrderServlet extends HttpServlet {
         int shippingPrice = 15;
         int totalPrice = 50;
         String date = request.getParameter("Date");
-        OrderManager manager = (OrderManager) session.getAttribute("manager");
+        OrderManager manager = (OrderManager) session.getAttribute("orderManager");
     try{
         Order exist = manager.findOrder(orderID,date);
         if(exist != null){

@@ -27,7 +27,7 @@ import java.util.logging.Logger;
             int userID = Integer.parseInt(request.getParameter("UserID"));
             String date = request.getParameter("Date");
             Order order = new Order(orderID,productID,userID,date,15,50);
-            OrderManager manager = (OrderManager) session.getAttribute("manager");
+            OrderManager manager = (OrderManager) session.getAttribute("orderManager");
             try {
                     if (order != null) {
                     session.setAttribute("order",order);
