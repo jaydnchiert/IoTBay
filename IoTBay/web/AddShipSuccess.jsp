@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./css/style.css" />
-        <title>Edit Shipment</title>
+        <title>Add New Shipment</title>
         <header class="main-header">
             <nav>
                 <h1 id="logo"><a href="./index.jsp">IoTBay</a></h1>
@@ -20,9 +20,7 @@
     </head>
     <body>
         <%
-            String shipped = (String) session.getAttribute("shipped");
+            String duplicate = (String) session.getAttribute("duplicate");
         %>
-        <h1>Edit Existing Shipment</h1>
-        <p>You can edit your shipment details here.</p>
-    </body>
-</html>
+        <h1>Add Shipment</h1>
+        <p>Your shipment has been successfully added.<br></p>

@@ -30,7 +30,7 @@ public class EditShippingServlet extends HttpServlet {
                     session.setAttribute("shipping",shipping);
                     request.getRequestDispatcher("Shipping.jsp").include(request, response);
                 }
-                if (Status == "Shipped") {
+                if (Status == "shipped") {
                     session.setAttribute("shipped", "Order has already been shipped and cannot be changed.");
                 } else {
                     session.setAttribute("shipping",shipping);
