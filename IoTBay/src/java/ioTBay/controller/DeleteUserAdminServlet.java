@@ -32,7 +32,7 @@ public class DeleteUserAdminServlet extends HttpServlet{
             manager.deleteUser(user.getUserID());
             
         }catch(SQLException ex) {
-            Logger.getLogger(DeleteUserServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeleteUserAdminServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         session.invalidate();

@@ -98,7 +98,7 @@ public class AddUserServlet extends HttpServlet{
             }catch (SQLException ex) {
                 validator.clear(session);
                 session.setAttribute("addErr", "Error: User couldn't be added");
-                Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AddUserServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

@@ -63,7 +63,7 @@ public class SearchUserServlet extends HttpServlet{
                 
         }catch (SQLException ex) {
             
-            Logger.getLogger(ShowAccessHistoryServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ShowUserListServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
