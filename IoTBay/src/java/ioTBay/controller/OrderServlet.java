@@ -47,7 +47,7 @@
             Logger.getLogger(OrderServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         //export the DB manager to the view-session (JSPs)
-        session.setAttribute("manager", manager);
+        session.setAttribute("orderManagermanager", manager);
      }
      @Override
      public void destroy() {

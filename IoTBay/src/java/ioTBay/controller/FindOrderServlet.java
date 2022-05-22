@@ -30,7 +30,7 @@ import java.util.logging.Logger;
              //4- capture the posted password
              String date = request.getParameter("Date");
              //5- retrieve the manager instance from session
-             OrderManager manager = (OrderManager) session.getAttribute("manager");
+             OrderManager manager = (OrderManager) session.getAttribute("orderManager");
              Order order = null;
              try {
                      order = manager.findOrder(id, date);
