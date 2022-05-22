@@ -19,8 +19,7 @@
             </nav>
     </head>
     <body>
-        <%
-            String duplicate = (String) session.getAttribute("duplicate");
-        %>
         <h1>Add Shipment</h1>
         <p>Your shipment has been successfully added.<br></p>
+    </body>
+</html>

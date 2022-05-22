@@ -26,16 +26,7 @@
         
     <body>
         <h1>Delete Shipment</h1>
-        <form method="post" action="./DeleteShippingServlet">
-            <%
-        int id = Integer.parseInt(request.getParameter("ShippingID"));
-        try {
-            Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
-            Connection con = DBConnector.db.openConnection();
-            Statement st = con.createStatement();
-            int ID = st.executeUpdate("DELETE FROM SHIPPING WHERE ShippingID="+id);
-        }
-            %>
+        <form method="post" action="./DeleteShippingServlet"></form>
             <h2>Your shipment has been successfully deleted.</h2>
     </body>
 </html>
