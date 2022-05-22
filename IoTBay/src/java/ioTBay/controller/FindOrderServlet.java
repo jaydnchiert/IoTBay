@@ -13,6 +13,8 @@
  import jakarta.servlet.http.HttpSession;
  import ioTBay.Order;
  import ioTBay.OrderDAO.OrderManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
   /**
@@ -24,7 +26,7 @@
         @Override
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
              HttpSession session = request.getSession();
-             int id = Integer.parseInt(request.getParameter("OrderID"));
+             Integer id = Integer.parseInt(request.getParameter("OrderID"));
              //4- capture the posted password
              String date = request.getParameter("Date");
              //5- retrieve the manager instance from session
@@ -34,6 +36,7 @@
                      order = manager.findOrder(id, date);
                  } catch (SQLException | NullPointerException ex) {
                      System.out.println(ex.getMessage() == null? "Order does not exist" : "welcome");
+                     Logger.getLogger(FindOrderServlet.class.getName()).log(Level.SEVERE, null, ex);
                      }
                  if (order != null) {
                  session.setAttribute("order",order);

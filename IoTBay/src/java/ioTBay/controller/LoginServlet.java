@@ -80,7 +80,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("accountText", "Account");
             //14- redirect user to the main.jsp
             if(utype.equals('a')){
-                request.getRequesrDispatcher("AdminIndex.jsp").include(request, response);
+                request.getRequestDispatcher("AdminIndex.jsp").include(request, response);
             }
             else request.getRequestDispatcher("loginSuccess.jsp").include(request, response);
             

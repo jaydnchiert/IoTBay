@@ -8,7 +8,9 @@ import java.util.logging.*;
 import ioTBay.Shipping;
 import ioTBay.ShippingDAO.*;
 
-public class DeleteShippingServlet {
+public class DeleteShippingServlet extends HttpServlet {
+    
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         HttpSession session = request.getSession();
