@@ -29,13 +29,13 @@ import java.util.logging.Logger;
             Order order = new Order(orderID,productID,userID,date,15,50);
             OrderManager manager = (OrderManager) session.getAttribute("orderManager");
             try {
-                    if (order.isEmpty()) {
-                    session.setAttribute("updated", "Update not successful");
-                    request.getRequestDispatcher("EditOrder.jsp").include(request, response);
-                    } else{
+                    if (order != null) {
                     session.setAttribute("order",order);
                     manager.updateOrder(orderID,productID,userID,date,15,50);
                     session.setAttribute("updated", "Update successful");
+                    request.getRequestDispatcher("EditOrder.jsp").include(request, response);
+                    } else{
+                    session.setAttribute("updated", "Update not successful");
                     request.getRequestDispatcher("EditOrder.jsp").include(request, response);
                     }
                 } catch (SQLException | NullPointerException ex) {
