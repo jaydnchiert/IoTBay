@@ -31,7 +31,7 @@ CREATE TABLE Product (
     ProductRegion varchar(35) NOT NULL,
     ProductStorage varchar(10) NOT NULL,
     ProductService varchar(35) NOT NULL,
-    ProductStatue varchar(10) NOT NULL,
+    ProductStatue integer(2) NOT NULL,
     ProductDescription varchar(8000) NOT NULL,
 
     CONSTRAINT ProductID_PK PRIMARY KEY (ProductID)
