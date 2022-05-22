@@ -38,12 +38,13 @@ import java.util.logging.Logger;
                      System.out.println(ex.getMessage() == null? "Order does not exist" : "welcome");
                      Logger.getLogger(FindOrderServlet.class.getName()).log(Level.SEVERE, null, ex);
                      }
-                 if (order != null) {
+                 if (order.isEmpty()) {
                  session.setAttribute("order",order);
-                 request.getRequestDispatcher("Order.jsp").include(request, response);
-                 } else{
                  session.setAttribute("existErr", "Order does not exist in Database.");
                  request.getRequestDispatcher("FindOrder.jsp").include(request, response);
+                 } else{
+                 session.setAttribute("order",order);
+                 request.getRequestDispatcher("Order.jsp").include(request, response);
                  }
          }
      }
