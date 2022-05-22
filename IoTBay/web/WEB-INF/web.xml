@@ -167,15 +167,7 @@
         <servlet-name>ShowUserListServlet</servlet-name>
         <url-pattern>/ShowUserListServlet</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>OrderServlet</servlet-name>
-        <url-pattern>/OrderServlet</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>OrderServlet</servlet-name>
-        <servlet-class>ioTBay.controller.OrderServlet</servlet-class>
-        <load-on-startup>0</load-on-startup>
-    </servlet>
+
     <servlet-mapping>
         <servlet-name>FindOrderServlet</servlet-name>
         <url-pattern>/FindOrderServlet</url-pattern>
