@@ -28,7 +28,7 @@
                 <ul>
                     <li><a href=<%=(accountLink!= null ? accountLink: "./register.jsp")%>><%=(accountText!= null ? accountText: "Register")%></a></li>
                     <li><a href=<%=(logoutLink!= null ? logoutLink: "./login.jsp")%>><%=(logoutText!= null ? logoutText: "Login")%></a></li>
-                    <li><a href="./Order.jsp">Order</a></li>
+                    <li><a href="./FindOrder.jsp">Order</a></li>
                     <li><a href="./Shipping.jsp">Shipping</a></li>
                 </ul>
             </nav>

@@ -13,7 +13,7 @@
                 <ul>
                     <li><a href="./register.jsp">Register</a></li>
                     <li><a href="./login.jsp">Login</a></li>
-                    <li><a href="./Order.jsp">Order</a></li>
+                    <li><a href="./FindOrder.jsp">Order</a></li>
                     <li><a href="./Shipping.jsp">Shipping</a></li>
                 </ul>
             </nav>
