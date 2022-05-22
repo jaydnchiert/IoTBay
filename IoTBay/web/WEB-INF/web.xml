@@ -81,6 +81,7 @@
         <servlet-name>DeleteUserServlet</servlet-name>
         <url-pattern>/DeleteUserServlet</url-pattern>
     </servlet-mapping>
+    
     <servlet>
         <servlet-name>OrderServlet</servlet-name>
         <servlet-class>ioTBay.controller.OrderServlet</servlet-class>
@@ -90,51 +91,7 @@
         <servlet-name>OrderServlet</servlet-name>
         <url-pattern>/OrderServlet</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>AddOrderServlet</servlet-name>
-        <url-pattern>ioTBay.controller.AddOrderServlet</url-pattern>
-        <load-on-startup>0</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>AddOrderServlet</servlet-name>
-        <url-pattern>/AddOrderServlet</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>EditOrderServlet</servlet-name>
-        <url-pattern>ioTBay.controller.EditOrderServlet</url-pattern>
-        <load-on-startup>0</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>EditOrderServlet</servlet-name>
-        <url-pattern>/EditOrderServlet</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>DeleteOrderServlet</servlet-name>
-        <url-pattern>ioTBay.controller.DeleteOrderServlet</url-pattern>
-        <load-on-startup>0</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>DeleteOrderServlet</servlet-name>
-        <url-pattern>/DeleteOrderServlet</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>FindOrderServlet</servlet-name>
-        <url-pattern>ioTBay.controller.FindOrderServlet</url-pattern>
-        <load-on-startup>0</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>FindOrderServlet</servlet-name>
-        <url-pattern>/FindOrderServlet</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>UpdateOrderServlet</servlet-name>
-        <url-pattern>ioTBay.controller.UpdateOrderServlet</url-pattern>
-        <load-on-startup>0</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>UpdateOrderServlet</servlet-name>
-        <url-pattern>/UpdateOrderServlet</url-pattern>
-    </servlet-mapping>
+
     <servlet>
         <servlet-name>AddShippingServlet</servlet-name>
         <servlet-class>ioTBay.controller.AddShippingServlet</servlet-class>
@@ -173,16 +130,6 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>AddUserServlet</servlet-name>
-        <servlet-class>ioTBay.controller.AddUserServlet</servlet-class>
-        <load-on-startup>0</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>AddUserServlet</servlet-name>
-        <url-pattern>/AddUserServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>DeleteUserAdminServlet</servlet-name>
         <servlet-class>ioTBay.controller.DeleteUserAdminServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
@@ -191,7 +138,16 @@
         <servlet-name>DeleteUserAdminServlet</servlet-name>
         <url-pattern>/DeleteUserAdminServlet</url-pattern>
     </servlet-mapping>
-
+    
+    <servlet>
+        <servlet-name>AddUserServlet</servlet-name>
+        <servlet-class>ioTBay.controller.AddUserServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddUserServlet</servlet-name>
+        <url-pattern>/AddUserServlet</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>SearchUserServlet</servlet-name>
         <servlet-class>ioTBay.controller.SearchUserServlet</servlet-class>

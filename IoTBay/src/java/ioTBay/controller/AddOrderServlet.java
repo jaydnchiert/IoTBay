@@ -4,11 +4,10 @@
  */
 package ioTBay.controller;
 
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import jakarta.servlet.RequestDispatcher;
+import java.io.IOException;
+import java.sql.SQLException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,6 +20,7 @@ import ioTBay.OrderDAO.OrderManager;
  * @author louistsou
  */
 public class AddOrderServlet extends HttpServlet {
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
