@@ -1,6 +1,6 @@
 IoTBAy - Iteration 1
 
-Make sure to be using jdk 17.0.2, java ee 8 web/jakarta ee 8 web, glassfish 5.1, Java db 10.14.2.0
+Make sure to be using jdk 17.0.2, java ee 8 web/jakarta ee 8 web, the latest glassfish, Java db 10.14.2.0
 
 To run and deploy the software:
 
