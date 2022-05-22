@@ -38,13 +38,13 @@ public Order findOrder(int OrderID, String Date) throws SQLException {
 
 //Add a user-data into the database
 public void addOrder(int OrderID, int ProductID, int UserID, String Date, int ShippingPrice, int TotalPrice) throws SQLException {                   //code for add-operation
-  st.executeUpdate("INSERT INTO CUSTOMERORDER " + "VALUES ('" + OrderID + "', '" + ProductID + "', '"+UserID + "','"+ "', '"+Date + "','" + ShippingPrice + "', '" + TotalPrice +"')");
+  st.executeUpdate("INSERT INTO CUSTOMERORDER " + "VALUES ('" + OrderID + "', '" + ProductID + "', '"+UserID + "','"+ "','" + ShippingPrice + "', '" + TotalPrice + "', '" + Date + "')");
 
 }
 
 //update a user details in the database
 public void updateOrder(int OrderID, int ProductID, int UserID, String Date, int ShippingPrice, int TotalPrice) throws SQLException {
-   st.executeUpdate("UPDATE CUSTOMERORDER " + "VALUES ('" + OrderID + "', '" + ProductID + "', '"+UserID + "','"+ "', '"+ Date + "','" + ShippingPrice + "', '" + TotalPrice +"')");
+   st.executeUpdate("UPDATE CUSTOMERORDER " + "VALUES ('" + OrderID + "', '" + ProductID + "', '"+UserID + "','"+ "','" + ShippingPrice + "', '" + TotalPrice + "', '" + Date + "')");
 
 }
 
