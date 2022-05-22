@@ -1,4 +1,4 @@
-IoTBAy - Iteration 1 (Assignment 2 Group 08-G2)
+IoTBAy - Iteration 1 (Assignment 2 Group 05-G8)
 
 Make sure to be using jdk 17.0.2, java ee 8 web/jakarta ee 8 web, the latest glassfish, Java db 10.14.2.0
 
