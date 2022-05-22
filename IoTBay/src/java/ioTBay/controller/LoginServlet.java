@@ -41,7 +41,8 @@ public class LoginServlet extends HttpServlet {
         
         User user = null;
         AccessHistory accessHistory = null;
-        
+        Character utype = null;
+
         try {
             //6- find user by email and password
                 user = userManager.findUser(email, password);
@@ -62,6 +63,7 @@ public class LoginServlet extends HttpServlet {
             
             //Add access record
             try {
+                utype = userManager.findUserType(email);
                 accessManager.addAccessHistory(user.getUserID());
                 accessHistory = accessManager.findAccessHistory(user.getUserID());
                 session.setAttribute("accessHistory", accessHistory);
@@ -77,7 +79,10 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("accountLink", "./account.jsp");
             session.setAttribute("accountText", "Account");
             //14- redirect user to the main.jsp
-            request.getRequestDispatcher("loginSuccess.jsp").include(request, response);
+            if(utype.equals('a')){
+                request.getRequesrDispatcher("AdminIndex.jsp").include(request, response);
+            }
+            else request.getRequestDispatcher("loginSuccess.jsp").include(request, response);
             
         } else {
             validator.clear(session);

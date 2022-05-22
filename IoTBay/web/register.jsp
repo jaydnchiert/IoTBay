@@ -64,6 +64,7 @@
                                     <select name="userType" value="c">
                                         <option value="c">Customer</option>
                                         <option value="s">Staff</option>
+                                        <option value="a">Admin</option>
                                     </select>
                                 </td>
                             </tr>

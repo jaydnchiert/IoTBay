@@ -90,6 +90,21 @@ public Boolean findEmail(String email) throws SQLException {
     return false;
 }
 
+//output user type
+public Character findUserType(String email) throws SQLException {
+    String fetch = "SELECT * FROM IoTUser WHERE EmailAddress = '" + email + "'";
+    ResultSet rs = st.executeQuery(fetch);
+    Character utype = null;
+    
+    while (rs.next()) {
+        String foundEmail = rs.getString(4);
+        if (foundEmail.equals(email)) {
+                utype = rs.getString(7).charAt(0);
+        }
+    }
+    return utype;
+}
+
 //update a user details in the database   
 public void updateUser(Integer userId, String firstName, String lastName, String email, String phoneNumber, String password) throws SQLException {       
    //code for update-operation  

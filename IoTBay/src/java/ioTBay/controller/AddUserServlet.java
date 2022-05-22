@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpSession;
 
 /**
  *
- * @author Jaydn
+ * @author Le
  */
 public class AddUserServlet extends HttpServlet{
     
@@ -68,27 +68,27 @@ public class AddUserServlet extends HttpServlet{
             //11-set incorrect password error to the session
             session.setAttribute("passErr", "Error: Password format incorrect");
             //12- redirect user back to the login.jsp          
-            request.getRequestDispatcher("register.jsp").include(request, response);
+            request.getRequestDispatcher("AddUserAdmin.jsp").include(request, response);
         
         } else if (!validator.validateName(firstName)) {
             validator.clear(session);
             session.setAttribute("firstNameErr", "Error: First name format incorrect");
-            request.getRequestDispatcher("register.jsp").include(request, response);
+            request.getRequestDispatcher("AddUserAdmin.jsp").include(request, response);
             
         } else if (!validator.validateName(lastName)){
             validator.clear(session);
             session.setAttribute("lastNameErr", "Error: Last name format incorrect");
-            request.getRequestDispatcher("register.jsp").include(request, response);
+            request.getRequestDispatcher("AddUserAdmin.jsp").include(request, response);
  
         } else if (!validator.validatePhoneNumber(phoneNumber)) {
             validator.clear(session);
             session.setAttribute("phoneErr", "Error: Phone Number format incorrect");
-            request.getRequestDispatcher("register.jsp").include(request, response);
+            request.getRequestDispatcher("AddUserAdmin.jsp").include(request, response);
             
         } else if (found == true) {
             validator.clear(session);
             session.setAttribute("existErr", "Error: User already exists in database");
-            
+            request.getRequestDispatcher("AddUserAdmin.jsp").include(request, response);
         } else {
             try {
                 validator.clear(session);

@@ -76,6 +76,9 @@
                         <p><%=(phoneErr!= null ? phoneErr: "")%></p>
                     </div>
                 </div>
+                <form action="./UserAdmin.jsp" method="post" align="center">
+                        <button type="submit">Go Back</button>
+                </form>   
             </section>
         </main>
     

@@ -88,7 +88,10 @@
                     </tbody>
                     </table>
                 </div>
-                    <a href="./AddUserAdmin.jsp" align="center">Add User</a>
+                    <form action="./AddUserAdmin.jsp" method="post" align="center">
+                        <button type="submit">Add User</button>
+                    </form>           
+                </div>
             </section>
         </main>
     </body>
