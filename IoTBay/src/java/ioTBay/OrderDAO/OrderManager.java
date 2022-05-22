@@ -19,7 +19,7 @@ public OrderManager(Connection conn) throws SQLException {
 
 //Find user by email and password in the database
 public Order findOrder(int OrderID, String Date) throws SQLException {
-   String fetch = "select * from STAFF.Order where OrderID = '" + OrderID + "' and Date='" + Date +"'";
+   String fetch = "select * from CUSTOMEROrder where OrderID = '" + OrderID + "' and Date='" + Date +"'";
    ResultSet rs = st.executeQuery(fetch);
 
    while(rs.next()){
@@ -38,19 +38,19 @@ public Order findOrder(int OrderID, String Date) throws SQLException {
 
 //Add a user-data into the database
 public void addOrder(int OrderID, int ProductID, int UserID, String Date, int ShippingPrice, int TotalPrice) throws SQLException {                   //code for add-operation
-  st.executeUpdate("INSERT INTO STAFF.CUSTOMERORDER " + "VALUES ('" + OrderID + "', '" + ProductID + "', '"+UserID + "','"+ "', '"+Date + "','" + ShippingPrice + "', '" + TotalPrice +"')");
+  st.executeUpdate("INSERT INTO CUSTOMERORDER " + "VALUES ('" + OrderID + "', '" + ProductID + "', '"+UserID + "','"+ "', '"+Date + "','" + ShippingPrice + "', '" + TotalPrice +"')");
 
 }
 
 //update a user details in the database
 public void updateOrder(int OrderID, int ProductID, int UserID, String Date, int ShippingPrice, int TotalPrice) throws SQLException {
-   st.executeUpdate("UPDATE STAFF.CUSTOMERORDER " + "VALUES ('" + OrderID + "', '" + ProductID + "', '"+UserID + "','"+ "', '"+ Date + "','" + ShippingPrice + "', '" + TotalPrice +"')");
+   st.executeUpdate("UPDATE CUSTOMERORDER " + "VALUES ('" + OrderID + "', '" + ProductID + "', '"+UserID + "','"+ "', '"+ Date + "','" + ShippingPrice + "', '" + TotalPrice +"')");
 
 }
 
 //delete a user from the database
 public void deleteOrder(int OrderID) throws SQLException{
-   st.executeUpdate("DELETE FROM STAFF>CUSTOMERORDER WEHRE OrderID='" + OrderID + "'");
+   st.executeUpdate("DELETE FROM CUSTOMERORDER WEHRE OrderID='" + OrderID + "'");
 
 }
 

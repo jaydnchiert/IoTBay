@@ -37,7 +37,7 @@ CREATE TABLE Product (
     CONSTRAINT ProductID_PK PRIMARY KEY (ProductID)
 );
 
-CREATE TABLE CustomerOrder (
+CREATE TABLE customerorder (
     OrderID integer NOT NULL,
     ProductID integer NOT NULL,
     UserID integer NOT NULL,
