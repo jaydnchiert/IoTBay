@@ -24,11 +24,11 @@ public class AddOrderServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        int orderID = Integer.parseInt(request.getParameter("OrderID"));
-        int userID = Integer.parseInt(request.getParameter("UserID"));
-        int productID = Integer.parseInt(request.getParameter("ProductID"));
-        int shippingPrice = 15;
-        int totalPrice = 50;
+        Integer orderID = Integer.parseInt(request.getParameter("OrderID"));
+        Integer userID = Integer.parseInt(request.getParameter("UserID"));
+        Integer productID = Integer.parseInt(request.getParameter("ProductID"));
+        Integer shippingPrice = 15;
+        Integer totalPrice = 50;
         String date = request.getParameter("Date");
         OrderManager manager = (OrderManager) session.getAttribute("orderManager");
     try{

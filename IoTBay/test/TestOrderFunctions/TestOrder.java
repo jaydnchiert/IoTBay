@@ -25,13 +25,13 @@ public class TestOrder {
               Connection conn = connector.openConnection();
               OrderManager db = new OrderManager(conn);
               System.out.print("OrderID: ");
-              int orderID = in.nextInt();
+              Integer orderID = in.nextInt();
               System.out.print("ProductID: ");
-              int productID = in.nextInt();
+              Integer productID = in.nextInt();
               System.out.print("UserID: ");
-              int userID = in.nextInt();
-              int shippingPrice = 15;
-              int totalPrice = 50;
+              Integer userID = in.nextInt();
+              Integer shippingPrice = 15;
+              Integer totalPrice = 50;
               System.out.print("Date: ");
               String date = in.nextLine();
 
