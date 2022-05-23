@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import ioTBay.Shipping;
-import ioTBay.ShippingDAO.*;
+import ioTBay.ShippingDAO.ShippingManager;
 
 public class AddShippingServlet extends HttpServlet {
     @Override
