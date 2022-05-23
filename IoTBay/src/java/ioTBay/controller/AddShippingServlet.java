@@ -11,9 +11,9 @@ import ioTBay.ShippingDAO.*;
 
 public class AddShippingServlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
                 HttpSession session = request.getSession();
                 int shippingID = Integer.parseInt(request.getParameter("shippingID"));
                 int orderID = Integer.parseInt(request.getParameter("orderID"));
@@ -21,8 +21,8 @@ public class AddShippingServlet extends HttpServlet {
                 String status = request.getParameter("status");
                 String date = request.getParameter("date");
                 String address = request.getParameter("address");
-                ShippingManager manager = (ShippingManager) session.getAttribute("manager");   
-                
+                ShippingManager manager = (ShippingManager) session.getAttribute("shippingManager");
+
     try {
         Shipping exist = manager.findShipment(shippingID);
         if (exist != null) {
@@ -37,5 +37,5 @@ public class AddShippingServlet extends HttpServlet {
         Logger.getLogger(AddOrderServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
 }
