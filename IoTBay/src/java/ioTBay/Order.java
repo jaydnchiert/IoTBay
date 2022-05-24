@@ -37,7 +37,7 @@ public Order(int OrderID, int UserID, int ProductID, String Date, int ShippingPr
         return UserID;
     }
 
-    public void setUserID(int CustomerID) {
+    public void setUserID(int UserID) {
         this.UserID = UserID;
     }
 
