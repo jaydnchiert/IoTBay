@@ -1,5 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="ioTBay.*"%>
+<%@page import="ioTBay.OrderDAO.*"%>
+<%@page import="ioTBay.Order"%>
+<%@page import="java.util.ArrayList"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,33 +14,72 @@
     </head>
     <body>
         <%
+          ArrayList temp = (ArrayList) session.getAttribute("temp");
           Order order = (Order) session.getAttribute("order");
+          String logoutLink = (String) session.getAttribute("logoutLink");
+          String logoutText = (String) session.getAttribute("logoutText");
+          String accountLink = (String) session.getAttribute("accountLink");
+          String accountText = (String) session.getAttribute("accountText");
+          String existErr = (String) session.getAttribute("existErr");
         %>
-        <center>
-        <table border="1">
-          <tr>
-              <th>OrderID</th>
-              <th>ProductID</th>
-              <th>UserID</th>
-              <th>ShippingPrice</th>
-              <th>TotalPrice</th>
-              <th>Date</th>
-              <th>    </th>
-              <th>    </th>
-          </tr>
-          <tr>
-            <td>${order.OrderID}</td>
-            <td>${order.ProductID}</td>
-            <td>${order.UserID}</td>
-            <td>15</td>
-            <td>50</td>
-            <td>${order.Date}</td>
-            <td><a href="EditOrderServlet?orderid='<%= order.getOrderID()%>'&date='<%= order.getDate()%>'">Edit</button></a>
-            <td><a href="DeleteOrderServlet?orderid='<%= order.getOrderID()%>'&date='<%= order.getDate()%>'">Delete</button></a>
-        </table>
-        <a href="./AddOrder.jsp">Add Order</a>
-        <a href="./index.jsp">Main page</a>
-      </center>
-
+       <header class="main-header">
+            <nav>
+                <h1 id="logo"><a href="./index.jsp">IoTBay</a></h1>
+                <ul>
+                    <li><a href=<%=(accountLink!= null ? accountLink: "./register.jsp")%>><%=(accountText!= null ? accountText: "Register")%></a></li>
+                    <li><a href=<%=(logoutLink!= null ? logoutLink: "./login.jsp")%>><%=(logoutText!= null ? logoutText: "Login")%></a></li>
+                    <li><a href="./FindOrder.jsp">Order</a></li>
+                    <li><a href="./Shipping.jsp">Shipping</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+        <table border="1" cellpadding="5">
+                    <thead>
+                        <tr>
+                            <th scope="col">OrderID</th>
+                            <th scope="col">UserID</th>
+                            <th scope="col">ProductID</th>
+                            <th scope="col">ShippingPrice</th>
+                            <th scope="col">TotalPrice</th>
+                            <th scope="col">Date</th>
+                            <th scope="col"> </th>
+                            <th scope="col"> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <%
+                        if(temp != null) {
+                        for(int i = 0; i < temp.size(); i++) {
+                    %>
+                    <tr>
+                        <td>
+                            <%OrderManager orderManager = (OrderManager) temp.get(i);%>
+                            <%=order.getOrderID()%>
+                        </td>
+                        <td><%=order.getUserID()%></td>
+                        <td><%=order.getProductID()%></td>
+                        <td><%=order.getShippingPrice()%></td>
+                        <td><%=order.getTotalPrice()%></td>
+                        <td><%=order.getDate()%></td>
+                        <td><form action="UpdateOrderServlet" method="post">
+                                <button type="submit">Edit</button>
+                            </form></td>
+                        <td>
+                            <form action="DeleteOrderServlet" method="post">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% }
+                    %>
+                    </tbody>
+                    </table>
+                </div>
+                    <form action="./AddOrder.jsp" method="post" align="center">
+                        <button type="submit">Add Order</button>
+                    </form>
+                </div>
+        </main>
     </body>
 </html>

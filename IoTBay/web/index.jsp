@@ -29,9 +29,10 @@
             </nav>
         </header>
         <main>
-            
+
         </main>
         <jsp:include page="/UserServlet" flush="true" />
         <jsp:include page="/AccessHistoryServlet" flush="true" />
+        <jsp:include page="/OrderServlet" flush="true" />
     </<body>
 </html>

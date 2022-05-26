@@ -33,15 +33,15 @@ import java.util.logging.Logger;
                     session.setAttribute("order",order);
                     manager.updateOrder(orderID,productID,userID,date,15,50);
                     session.setAttribute("updated", "Update successful");
-                    request.getRequestDispatcher("EditOrder.jsp").include(request, response);
+                    request.getRequestDispatcher("Order.jsp").include(request, response);
                     } else{
                     session.setAttribute("updated", "Update not successful");
-                    request.getRequestDispatcher("EditOrder.jsp").include(request, response);
+                    request.getRequestDispatcher("Order.jsp").include(request, response);
                     }
                 } catch (SQLException | NullPointerException ex) {
                 Logger.getLogger(UpdateOrderServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-            response.sendRedirect("EditOrder.jsp");
+
 
     }
 }

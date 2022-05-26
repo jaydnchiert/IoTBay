@@ -32,7 +32,7 @@ public class AddOrderServlet extends HttpServlet {
         String date = request.getParameter("Date");
         OrderManager manager = (OrderManager) session.getAttribute("orderManager");
     try{
-        Order exist = manager.findOrder(orderID,date);
+        Order exist = manager.findOrder(orderID);
         if(exist != null){
         session.setAttribute("existErr", "Order exists in database");
         request.getRequestDispatcher("AddOrder.jsp").include(request, response);

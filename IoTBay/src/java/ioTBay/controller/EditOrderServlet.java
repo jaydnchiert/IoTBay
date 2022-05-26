@@ -31,7 +31,7 @@
          OrderManager manager = (OrderManager) session.getAttribute("orderManager");
          Order order = null;
              try {
-                     order = manager.findOrder(id, date);
+                     order = manager.findOrder(id);
                      if (order != null) {
                      session.setAttribute("order",order);
                      request.getRequestDispatcher("EditOrder.jsp").include(request, response);

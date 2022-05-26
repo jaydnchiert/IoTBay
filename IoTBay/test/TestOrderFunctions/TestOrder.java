@@ -37,7 +37,7 @@ public class TestOrder {
 
               db.addOrder(orderID, productID, userID, date, shippingPrice, totalPrice);
               Order order = new Order(orderID, productID, userID, date, shippingPrice, totalPrice);
-              Order testOrder = db.findOrder(orderID, date);
+              Order testOrder = db.findOrder(orderID);
 
               assertSame(order, testOrder);
               assertEquals(order.getOrderID(),testOrder.getOrderID());

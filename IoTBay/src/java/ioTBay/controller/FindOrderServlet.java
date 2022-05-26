@@ -22,29 +22,32 @@ import java.util.logging.Logger;
    * @author louistsou
    */
 
-  public class FindOrderServlet extends HttpServlet {
-        @Override
-        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-             HttpSession session = request.getSession();
-             Integer id = Integer.parseInt(request.getParameter("OrderID"));
-             //4- capture the posted password
-             String date = request.getParameter("Date");
-             //5- retrieve the manager instance from session
-             OrderManager manager = (OrderManager) session.getAttribute("orderManager");
-             Order order = null;
-             try {
-                     order = manager.findOrder(id, date);
-                     if (order != null) {
-                     session.setAttribute("order",order);
-                     request.getRequestDispatcher("Order.jsp").include(request, response);
-                     } else{
-                     session.setAttribute("existErr", "Order does not exist in Database.");
-                     request.getRequestDispatcher("FindOrder.jsp").include(request, response);
-                     }
-                 } catch (SQLException | NullPointerException ex) {
-                     System.out.println(ex.getMessage() == null? "Order does not exist" : "welcome");
-                     Logger.getLogger(FindOrderServlet.class.getName()).log(Level.SEVERE, null, ex);
-                     }
+   public class FindOrderServlet extends HttpServlet {
+         @Override
+         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+              HttpSession session = request.getSession();
+              Integer id = Integer.parseInt(request.getParameter("OrderID"));
 
-         }
-     }
+              String date = request.getParameter("Date");
+
+              OrderManager manager = (OrderManager) session.getAttribute("orderManager");
+              Order order = (Order) session.getAttribute("order");
+              ArrayList temp = null;
+              try {
+                      temp = manager.findAllOrder(order.getOrderID());
+                      if (temp.isEmpty()) {
+                      temp = null;
+                      session.setAttribute("temp", temp);
+                      session.setAttribute("existErr", "Order does not exist in Database.");
+                      request.getRequestDispatcher("Order.jsp").include(request, response);
+                      } else{
+                      session.setAttribute("temp",temp);
+                      request.getRequestDispatcher("Order.jsp").include(request, response);
+                      }
+                  } catch (SQLException | NullPointerException ex) {
+                      System.out.println(ex.getMessage() == null? "Order does not exist" : "welcome");
+                      Logger.getLogger(FindOrderServlet.class.getName()).log(Level.SEVERE, null, ex);
+                      }
+
+          }
+      }

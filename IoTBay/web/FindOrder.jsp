@@ -12,22 +12,39 @@
       <%
           String existErr = (String) session.getAttribute("existErr");
       %>
-        <div><span class="time" id="time" ></span></div>
+      <header class="main-header">
+            <nav>
+                <h1 id="logo"><a href="./index.jsp">IoTBay</a></h1>
+                <ul>
+                    <li><a href="./register.jsp">Register</a></li>
+                    <li><a href="./login.jsp">Login</a></li>
+                    <li><a href="./FindOrder.jsp">Order</a></li>
+                    <li><a href="./Shipping.jsp">Shipping</a></li>
+                </ul>
+            </nav>
+        </header>
+    <center>
         <p><%=(existErr!= null ? existErr: "")%></p>
-        <form action="FindOrderServlet" method="post">
-            <table id="form_table">
-                <tr>
-                    <td>Please enter your OrderID</td>
-                    <td><input type="text" placeholder="Enter OrderID" name="OrderID" required/></td>
-                </tr>
-                <tr>
-                    <td>Please enter your Date</td>
-                    <td><input type="text" placeholder="Enter Date" name="Date" required/></td>
-                </tr>
-            </table>
-            <div class="form-button">
-            <input type="submit" value="FindOrder" />
-          </div>
-        </form>
+        <div class="form-wrapper">
+                    <header class="form-head">
+                        <h2>Find Order</h2>
+                    </header>
+                    <form action="FindOrderServlet" method="post">
+                        <table>
+                            <tr>
+                                <td>Order ID: </td>
+                                <td><input type="text" name="OrderID"/></td>
+                            </tr>
+                            <tr>
+                                  <td>Date: </td>
+                                  <td><input type="text" name="Date"/></td>
+                            </tr>
+                        </table>
+                        <div class="form-button">
+                            <button type="submit">Find Order</button>
+                        </div>
+
+                    </form>
+            </center>
     </body>
 </html>

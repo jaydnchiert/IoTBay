@@ -30,7 +30,7 @@
          OrderManager manager = (OrderManager) session.getAttribute("orderManager");
          Order order = null;
              try {
-                     order = manager.findOrder(orderID, date);
+                     order = manager.findOrder(orderID);
                      if (order != null) {
                      manager.deleteOrder(orderID);
                      request.getRequestDispatcher("Order.jsp").include(request, response);

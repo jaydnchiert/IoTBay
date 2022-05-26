@@ -17,23 +17,40 @@ public OrderManager(Connection conn) throws SQLException {
    st = conn.createStatement();
 }
 
-//Find user by email and password in the database
-public Order findOrder(int OrderID, String Date) throws SQLException {
-   String fetch = "select * from CUSTOMEROrder where OrderID = '" + OrderID + "' and Date='" + Date +"'";
+
+public Order findOrder(int OrderID) throws SQLException {
+   String fetch = "select * from CUSTOMERORDER where OrderID = '" + OrderID + "'";
    ResultSet rs = st.executeQuery(fetch);
 
    while(rs.next()){
       int orderID = rs.getInt(1);
-      String date  = rs.getString(4);
-      if (orderID==OrderID&&date==Date){
-         int userID = rs.getInt(2);
-         int productID = rs.getInt(3);
-         int shippingPrice = rs.getInt(5);
-         int totalPrice = rs.getInt(6);
+      if (orderID==OrderID){
+         int userID = rs.getInt(3);
+         int productID = rs.getInt(2);
+         int shippingPrice = rs.getInt(4);
+         int totalPrice = rs.getInt(5);
+         String date  = rs.getString(6);
          return new Order(orderID, productID, userID, date, shippingPrice, totalPrice);
     }
 }
    return null;
+}
+
+public ArrayList<Order> findAllOrder(int OrderID) throws SQLException {
+   String fetch = "select * from CUSTOMERORDER where OrderID = '" + OrderID + "'";
+   ResultSet rs = st.executeQuery(fetch);
+   ArrayList<Order> temp = new ArrayList();
+   while(rs.next()){
+         int orderID = rs.getInt(1);
+         int userID = rs.getInt(3);
+         int productID = rs.getInt(2);
+         int shippingPrice = rs.getInt(4);
+         int totalPrice = rs.getInt(5);
+         String date  = rs.getString(6);
+         temp.add(new Order(orderID, productID, userID, date, shippingPrice, totalPrice));
+
+}
+   return temp;
 }
 
 //Add a user-data into the database
