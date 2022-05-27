@@ -28,27 +28,27 @@ import java.util.ArrayList;
          protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
               HttpSession session = request.getSession();
               Integer id = Integer.parseInt(request.getParameter("OrderID"));
-
-              String date = request.getParameter("Date");
-
-              OrderManager manager = (OrderManager) session.getAttribute("orderManager");
-              Order order = (Order) session.getAttribute("order");
+              OrderManager orderManager = (OrderManager) session.getAttribute("orderManager");
+              Order order = null;
               ArrayList temp = null;
               try {
-                      temp = manager.findAllOrder(order.getOrderID());
-                      if (temp.isEmpty()) {
-                      temp = null;
-                      session.setAttribute("temp", temp);
-                      session.setAttribute("existErr", "Order does not exist in Database.");
-                      request.getRequestDispatcher("Order.jsp").include(request, response);
-                      } else{
-                      session.setAttribute("temp",temp);
-                      request.getRequestDispatcher("Order.jsp").include(request, response);
-                      }
-                  } catch (SQLException | NullPointerException ex) {
-                      System.out.println(ex.getMessage() == null? "Order does not exist" : "welcome");
+                      order = orderManager.findOrder(id);
+
+                  } catch (SQLException ex) {
                       Logger.getLogger(FindOrderServlet.class.getName()).log(Level.SEVERE, null, ex);
                       }
-
-          }
-      }
+              if (order != null) {
+              try {
+                    temp = orderManager.fecthOrders();
+                    session.setAttribute("temp",temp);
+                    request.getRequestDispatcher("Order.jsp").include(request, response);
+            }catch(SQLException ex) {
+                Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            }
+              else{
+              session.setAttribute("existErr", "Order does not exist");
+              request.getRequestDispatcher("FindOrder.jsp").include(request,response);
+              }
+         }
+   }

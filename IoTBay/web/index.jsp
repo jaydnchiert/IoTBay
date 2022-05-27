@@ -1,4 +1,5 @@
 <%@page import="ioTBay.User" %>
+<%@page import="ioTBay.Order" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +13,7 @@
     <body>
         <%
             User user = (User) session.getAttribute("user");
+            Order order = (Order) session.getAttribute("order");
             String logoutLink = (String) session.getAttribute("logoutLink");
             String logoutText = (String) session.getAttribute("logoutText");
             String accountLink = (String) session.getAttribute("accountLink");

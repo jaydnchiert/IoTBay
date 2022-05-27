@@ -36,23 +36,6 @@ public Order findOrder(int OrderID) throws SQLException {
    return null;
 }
 
-public ArrayList<Order> findAllOrder(int OrderID) throws SQLException {
-   String fetch = "select * from CUSTOMERORDER where OrderID = '" + OrderID + "'";
-   ResultSet rs = st.executeQuery(fetch);
-   ArrayList<Order> temp = new ArrayList();
-   while(rs.next()){
-         int orderID = rs.getInt(1);
-         int userID = rs.getInt(3);
-         int productID = rs.getInt(2);
-         int shippingPrice = rs.getInt(4);
-         int totalPrice = rs.getInt(5);
-         String date  = rs.getString(6);
-         temp.add(new Order(orderID, productID, userID, date, shippingPrice, totalPrice));
-
-}
-   return temp;
-}
-
 //Add a user-data into the database
 public void addOrder(int OrderID, int ProductID, int UserID, String Date, int ShippingPrice, int TotalPrice) throws SQLException {                   //code for add-operation
   st.executeUpdate("INSERT INTO CUSTOMERORDER " + "VALUES ('" + OrderID + "', '" + ProductID + "', '"+UserID + "','"+ "','" + ShippingPrice + "', '" + TotalPrice + "', '" + Date + "')");
